@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alliance HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="poster.css?v=b97f63dcaa">
+</head>
+<body data-page="HQ">
+<a class="skip" href="#next">Skip to what's on</a>
+
+<aside class="rail" aria-hidden="true"><div class="rail-text" id="rail"></div></aside>
+
+<header class="top field-bone">
+  <a class="brand" href="home.html" data-brand>Alliance HQ</a>
+  <nav aria-label="Main">
+    <ul class="nav">
+      <li><a href="home.html" aria-current="page" data-nav="home">HQ</a></li>
+      <li><a href="#season" data-nav="season" data-soon>Season</a></li>
+      <li><a href="#tips" data-nav="tips" data-soon>Tips</a></li>
+      <li><a href="calc.html" data-nav="tools">Calculators</a></li>
+      <li><a href="planner.html" data-nav="planner">Planner</a></li>
+    </ul>
+  </nav>
+  <label class="lang"><span class="vh">Language</span>
+    <select id="lang"></select>
+  </label>
+</header>
+
+<main id="main">
+
+  <section class="mast field-color" aria-labelledby="name">
+    <div class="mast-text">
+      <h1 id="name" class="name rise" dir="ltr"><span id="name1">The</span><span id="name2">Dragonfly</span></h1>
+      <p class="motto" id="motto"></p>
+      <p class="season-line"><span class="season-name">Season 8: Dinosaur Era</span><span class="season-week">Week 4 of 10</span></p>
+    </div>
+    <img class="mast-art" id="heroArt" alt="" width="1728" height="720">
+  </section>
+
+  <section class="next field-bone" id="next" aria-labelledby="nextName">
+    <p class="word">Next</p>
+    <h2 class="event-name" id="nextName"></h2>
+    <p class="event-when" id="nextWhen"></p>
+    <p class="poster-num rise" style="--i:1"><time id="nextTime" datetime=""></time></p>
+    <a class="go" id="nextGo" href="planner.html">Open the BGB plan</a>
+
+    <ol class="others" id="others"></ol>
+
+    <p class="note" id="note"></p>
+  </section>
+
+  <section class="routes field-deep" aria-labelledby="goWord">
+    <p class="word" id="goWord">Go</p>
+    <div class="posters">
+      <a class="poster poster-calc" href="calc.html">
+        <img id="calcArt" alt="" width="1800" height="600">
+        <span class="poster-rail"><span>Calculators</span></span>
+        <span class="poster-slab">Speedups, research budget, crystals, capture time</span>
+      </a>
+      <a class="poster poster-plan" href="planner.html">
+        <img id="planArt" alt="" width="1800" height="600">
+        <span class="poster-foot"><span class="poster-title">Planner</span><span>Black Gold Battlefield roster and map</span></span>
+      </a>
+    </div>
+    <div class="bands">
+      <a class="band" href="#season" id="season" data-soon>
+        <img id="seasonArt" alt="" width="1440" height="720">
+        <span class="band-text"><span class="band-title">Season</span><span>Dinosaur Era guide, week by week</span><small class="soon" role="status"></small></span>
+      </a>
+      <a class="band" href="#tips" id="tips" data-soon>
+        <img id="tipsArt" alt="" width="1800" height="600">
+        <span class="band-text"><span class="band-title">Tips</span><span>Before you march</span><small class="soon" role="status"></small></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="diplo field-color" aria-labelledby="diploWord">
+    <p class="word" id="diploWord">Diplomacy</p>
+    <div class="diplo-grid">
+      <div class="nap">
+        <p class="nap-num" id="napNum">NAP 8</p>
+        <p id="napNote">Non-aggression pact</p>
+      </div>
+      <div class="allies">
+        <p class="sub">Allies</p>
+        <p class="tags" id="allies"></p>
+      </div>
+      <div class="inter" id="inter">
+        <p class="sub">Inter-state pacts</p>
+        <ul id="interList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="lead field-color" aria-labelledby="leadWord">
+    <p class="word" id="leadWord">Leadership</p>
+    <div class="r5">
+      <div class="portrait portrait-r5" id="r5Portrait"></div>
+      <div>
+        <p class="rank">R5 leader</p>
+        <p class="r5-name" id="r5Name"></p>
+      </div>
+    </div>
+    <p class="rank">R4 council</p>
+    <ul class="roll" id="council"></ul>
+  </section>
+
+</main>
+
+<footer class="foot field-deep">
+  <p data-brand></p>
+  <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+  <a href="#main">Back to top</a>
+</footer>
+
+<nav class="bar" aria-label="Main, phone">
+  <a href="home.html" aria-current="page" data-nav="home">HQ</a>
+  <a href="#season" data-nav="season" data-soon>Season</a>
+  <a href="#tips" data-nav="tips" data-soon>Tips</a>
+  <a href="calc.html" data-nav="tools">Calculators</a>
+  <a href="planner.html" data-nav="planner">Planner</a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls" dir="ltr">
+  <span>Mock · Alliance:</span>
+  <button type="button" data-a="DGF">DGF</button><span>|</span><button type="button" data-a="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="poster.js?v=4602903cf5"></script>
+<script src="home.js?v=ed4c40b9f8"></script>
+</body>
+</html>
