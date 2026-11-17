@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculators: supply ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Big+Shoulders+Text:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./d5.css?v=60e6889aa3">
+</head>
+<body>
+<a class="skip" href="#speedups">Skip to the speedup calculator</a>
+
+<header class="strip" aria-label="Alliance">
+  <a class="mark" href="./home.html">
+    <svg class="pennant" viewBox="0 0 44 56" aria-hidden="true"><use href="#sym-pennant"></use><text x="21" y="27" class="pennant-tag" data-brand-tag>DGF</text></svg>
+    <span class="mark-text"><bdi data-brand-name>The Dragonfly</bdi><small>Dark War: Survival</small></span>
+  </a>
+  <nav class="tabs" aria-label="Pages">
+    <a class="tab" data-nav="home">HQ</a>
+    <a class="tab" data-nav="season">Season</a>
+    <a class="tab" data-nav="tips">Tips</a>
+    <a class="tab" data-nav="tools">Calculators</a>
+    <a class="tab" data-nav="planner">Planner</a>
+  </nav>
+  <label class="lang"><span class="sr">Language</span><select id="lang"></select></label>
+</header>
+<p class="soon" id="soon" role="status" aria-live="polite" hidden>Coming in the full build.</p>
+
+<main>
+  <section class="band band-page" aria-label="Calculators">
+    <img class="band-art" data-art="calculators" alt="" src="../assets/DGF/calculator-workshop.webp?v=0fa4129f64">
+    <div class="band-text">
+      <svg class="crest" viewBox="0 0 44 56" aria-hidden="true"><use href="#sym-pennant"></use><text x="22" y="29" class="crest-tag" data-brand-tag>DGF</text></svg>
+      <div class="band-name">
+        <p class="band-game"><bdi data-brand-name>The Dragonfly</bdi></p>
+        <h1 class="band-title">Calculators</h1>
+        <p class="band-motto">Costs, rates and timers for this week's moves. Enter the numbers your own game shows.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="calc">
+    <nav class="rail" aria-label="Calculators on this page">
+      <ol class="rail-list" id="rail"></ol>
+      <section class="beyond" aria-labelledby="beyond-title">
+        <h2 id="beyond-title">Beyond this site</h2>
+        <p class="rail-note">Deeper calculators by ATLANTIS HUB. Each opens in a new tab.</p>
+        <ul id="external" class="external"></ul>
+      </section>
+    </nav>
+
+    <div class="sheets">
+      <!-- Speedup inventory: the hero -->
+      <section class="sheet tag" id="speedups" aria-labelledby="sp-title">
+        <header class="sheet-head">
+          <svg class="glyph" aria-hidden="true"><use href="#sym-clock"/></svg>
+          <div><h2 id="sp-title">Speedup inventory</h2><p class="lede" id="sp-desc"></p></div>
+        </header>
+        <form class="ledger" id="sp-form" novalidate>
+          <fieldset class="denoms">
+            <legend>Items you hold</legend>
+            <div class="denom" data-k="one"><label for="sp-one"><svg aria-hidden="true"><use href="#sym-clock"/></svg><span>1-minute items</span></label>
+              <div class="stepper"><button type="button" class="step" data-d="-1" aria-label="One fewer 1-minute item">−</button><input id="sp-one" name="one" inputmode="numeric" pattern="[0-9]*" value="0"><button type="button" class="step" data-d="1" aria-label="One more 1-minute item">+</button></div></div>
+            <div class="denom" data-k="five"><label for="sp-five"><svg aria-hidden="true"><use href="#sym-clock"/></svg><span>5-minute items</span></label>
+              <div class="stepper"><button type="button" class="step" data-d="-1" aria-label="One fewer 5-minute item">−</button><input id="sp-five" name="five" inputmode="numeric" pattern="[0-9]*" value="0"><button type="button" class="step" data-d="1" aria-label="One more 5-minute item">+</button></div></div>
+            <div class="denom" data-k="sixty"><label for="sp-sixty"><svg aria-hidden="true"><use href="#sym-clock"/></svg><span>1-hour items</span></label>
+              <div class="stepper"><button type="button" class="step" data-d="-1" aria-label="One fewer 1-hour item">−</button><input id="sp-sixty" name="sixty" inputmode="numeric" pattern="[0-9]*" value="0"><button type="button" class="step" data-d="1" aria-label="One more 1-hour item">+</button></div></div>
+            <div class="denom" data-k="extra"><label for="sp-extra"><svg aria-hidden="true"><use href="#sym-clock"/></svg><span>Other speedups, total minutes</span></label>
+              <div class="stepper"><button type="button" class="step" data-d="-10" aria-label="Ten fewer minutes">−</button><input id="sp-extra" name="extra" inputmode="numeric" pattern="[0-9]*" value="0"><button type="button" class="step" data-d="10" aria-label="Ten more minutes">+</button></div></div>
+          </fieldset>
+          <fieldset class="timer">
+            <legend>Upgrade timer in game</legend>
+            <div class="dhm">
+              <label><input id="sp-d" name="d" inputmode="numeric" pattern="[0-9]*" value="0"><span>days</span></label>
+              <label><input id="sp-h" name="h" inputmode="numeric" pattern="[0-9]*" value="0"><span>hours</span></label>
+              <label><input id="sp-m" name="m" inputmode="numeric" pattern="[0-9]*" value="0"><span>minutes</span></label>
+            </div>
+          </fieldset>
+          <div class="result" id="sp-result" aria-live="polite">
+            <div class="terr" role="img" aria-label="Covered share of the timer"><span class="terr-ours" id="sp-bar"></span></div>
+            <dl class="readout">
+              <div><dt>Speedups available</dt><dd id="sp-avail">0m</dd></div>
+              <div><dt>Timer</dt><dd id="sp-timer">0m</dd></div>
+              <div class="short"><dt>Still needed</dt><dd id="sp-short">0m</dd></div>
+            </dl>
+            <p class="verdict" id="sp-verdict"></p>
+          </div>
+          <div class="acts">
+            <button type="button" class="btn" id="sp-example">Load example</button>
+            <button type="button" class="btn quiet" id="sp-reset">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Research budget -->
+      <section class="sheet tag" id="research" aria-labelledby="rs-title">
+        <header class="sheet-head">
+          <svg class="glyph" aria-hidden="true"><use href="#sym-badge"/></svg>
+          <div><h2 id="rs-title">Research budget</h2><p class="lede" id="rs-desc"></p></div>
+        </header>
+        <form class="ledger" id="rs-form" novalidate>
+          <div class="steps-head" aria-hidden="true">
+            <span>Step</span>
+            <span><svg><use href="#sym-wood"/></svg>Wood</span><span><svg><use href="#sym-iron"/></svg>Iron</span><span><svg><use href="#sym-electricity"/></svg>Electricity</span>
+            <span><svg><use href="#sym-coin"/></svg>Coin</span><span><svg><use href="#sym-badge"/></svg>Badges</span><span><svg><use href="#sym-clock"/></svg>Minutes</span><span></span>
+          </div>
+          <ol class="steps" id="rs-steps"></ol>
+          <p class="acts-inline"><button type="button" class="btn quiet" id="rs-add">Add a step</button></p>
+          <fieldset class="bonuses">
+            <legend>Your bonuses</legend>
+            <label><span>Research speed bonus</span><span class="unit"><input id="rs-speed" inputmode="numeric" pattern="[0-9]*" value="0"><b>%</b></span></label>
+            <label><span>Resource reduction, not on badges</span><span class="unit"><input id="rs-discount" inputmode="numeric" pattern="[0-9]*" value="0"><b>%</b></span></label>
+            <label><span>Speedups available</span><span class="unit"><input id="rs-speedups" inputmode="numeric" pattern="[0-9]*" value="0"><b>min</b></span></label>
+          </fieldset>
+          <div class="result" id="rs-result" aria-live="polite">
+            <ul class="req" id="rs-req"></ul>
+            <dl class="readout">
+              <div><dt>Time</dt><dd id="rs-time">0m</dd></div>
+              <div><dt>After speedups</dt><dd id="rs-after">0m</dd></div>
+            </dl>
+            <p class="verdict" id="rs-verdict"></p>
+          </div>
+          <div class="acts">
+            <button type="button" class="btn" id="rs-example">Load example</button>
+            <button type="button" class="btn quiet" id="rs-reset">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Compact three -->
+      <section class="sheet tag compact" id="goal" aria-labelledby="go-title">
+        <header class="sheet-head"><svg class="glyph" aria-hidden="true"><use href="#sym-scales"/></svg><div><h2 id="go-title">Resource goal</h2><p class="lede" id="go-desc"></p></div></header>
+        <form class="ledger grid3" id="go-form" novalidate>
+          <label><span>In storage</span><input id="go-owned" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <label><span>Target</span><input id="go-target" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <label><span>Net gain per hour</span><input id="go-rate" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <p class="verdict" id="go-verdict" aria-live="polite"></p>
+          <div class="acts"><button type="button" class="btn quiet" id="go-example">Load example</button></div>
+        </form>
+      </section>
+
+      <section class="sheet tag compact" id="crystals" aria-labelledby="cr-title">
+        <header class="sheet-head"><svg class="glyph" aria-hidden="true"><use href="#sym-crystal"/></svg><div><h2 id="cr-title">Weekly crystal estimate</h2><p class="lede" id="cr-desc"></p></div></header>
+        <form class="ledger grid3" id="cr-form" novalidate>
+          <label><span>Regular Mining Sites</span><input id="cr-regularCount" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <label><span>Crystals per regular site</span><input id="cr-regularPayout" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <span class="spacer" aria-hidden="true"></span>
+          <label><span>Boosted Mining Sites</span><input id="cr-boostedCount" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <label><span>Crystals per boosted site</span><input id="cr-boostedPayout" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <span class="spacer" aria-hidden="true"></span>
+          <label><span>Passes</span><input id="cr-passCount" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <label><span>Crystals per Pass</span><input id="cr-passPayout" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+          <p class="verdict" id="cr-verdict" aria-live="polite"></p>
+          <div class="acts"><button type="button" class="btn quiet" id="cr-example">Load example</button></div>
+        </form>
+      </section>
+
+      <section class="sheet tag compact" id="capture" aria-labelledby="ca-title">
+        <header class="sheet-head"><svg class="glyph" aria-hidden="true"><use href="#sym-mine"/></svg><div><h2 id="ca-title">Mining Site capture</h2><p class="lede" id="ca-desc"></p></div></header>
+        <form class="ledger grid3" id="ca-form" novalidate>
+          <label><span>Current camp progress</span><span class="unit"><input id="ca-progress" inputmode="numeric" pattern="[0-9]*" value="0"><b>%</b></span></label>
+          <label><span>Full capture time</span><span class="unit"><input id="ca-full" inputmode="numeric" pattern="[0-9]*" value="30"><b>min</b></span></label>
+          <p class="verdict" id="ca-verdict" aria-live="polite"></p>
+          <div class="acts"><button type="button" class="btn quiet" id="ca-example">Load example</button></div>
+        </form>
+      </section>
+      <p class="footnote">Formulas match the alliance sites. Inputs stay in this browser only.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <p><b data-brand-brand>DGF Alliance HQ</b></p>
+  <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+  <p><a href="#speedups">Back to top</a></p>
+</footer>
+
+<nav class="bar" aria-label="Pages">
+  <a data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zm8 2 6 6-6 6-6-6z" fill="currentColor"/></svg><span class="l">HQ</span></a>
+  <a data-nav="season"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sym-star"/></svg><span class="l">Season</span></a>
+  <a data-nav="tips"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v14l-4 4H5z" fill="currentColor"/><path d="M8 8h8M8 12h6" stroke="var(--fog)" stroke-width="2"/></svg><span class="l">Tips</span></a>
+  <a data-nav="tools"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18H4zM7 7h10v3H7zm0 6h3v3H7zm7 0h3v3h-3z" fill="currentColor"/></svg><span class="l">Calculators</span></a>
+  <a data-nav="planner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zm6 0v14m6-16v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="l">Planner</span></a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls">Mock · Alliance:
+  <button type="button" data-a="DGF">DGF</button><span>|</span><button type="button" data-a="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="./shell.js?v=0cad67fb2d"></script>
+<script src="./calc.js?v=73431ad6a4"></script>
+</body>
+</html>

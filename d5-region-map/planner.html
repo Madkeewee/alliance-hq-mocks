@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Gold Battlefield planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Big+Shoulders+Text:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./d5.css?v=60e6889aa3">
+</head>
+<body>
+<a class="skip" href="#bgb-map">Skip to the battlefield</a>
+
+<header class="strip" aria-label="Alliance">
+  <a class="mark" href="./home.html">
+    <svg class="pennant" viewBox="0 0 44 56" aria-hidden="true"><use href="#sym-pennant"></use><text x="21" y="27" class="pennant-tag" data-brand-tag>DGF</text></svg>
+    <span class="mark-text"><bdi data-brand-name>The Dragonfly</bdi><small>Dark War: Survival</small></span>
+  </a>
+  <nav class="tabs" aria-label="Pages">
+    <a class="tab" data-nav="home">HQ</a>
+    <a class="tab" data-nav="season">Season</a>
+    <a class="tab" data-nav="tips">Tips</a>
+    <a class="tab" data-nav="tools">Calculators</a>
+    <a class="tab" data-nav="planner">Planner</a>
+  </nav>
+  <label class="lang"><span class="sr">Language</span><select id="lang"></select></label>
+</header>
+<p class="soon" id="soon" role="status" aria-live="polite" hidden>Coming in the full build.</p>
+
+<main>
+  <section class="band band-page" aria-label="Black Gold Battlefield">
+    <img class="band-art" data-art="bgb" alt="" src="../assets/DGF/black-gold-desert.webp?v=c7f8229a39">
+    <div class="band-text">
+      <svg class="crest" viewBox="0 0 44 56" aria-hidden="true"><use href="#sym-pennant"></use><text x="22" y="29" class="crest-tag" data-brand-tag>DGF</text></svg>
+      <div class="band-name">
+        <p class="band-game"><bdi data-brand-name>The Dragonfly</bdi></p>
+        <h1 class="band-title">Black Gold Battlefield</h1>
+        <p class="band-motto">Lower-left start. Twenty starters, six refineries, two standbys and four floaters.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="bgb">
+    <div class="teambar">
+      <div class="teams" role="group" aria-label="Team">
+        <button type="button" class="team is-current" data-team="A" aria-pressed="true">Team A</button>
+        <button type="button" class="team" data-team="B" aria-pressed="false">Team B</button>
+      </div>
+      <p class="count-line" id="count-line" aria-live="polite">Team A · 20 / 20 starters</p>
+      <div class="views" role="tablist" aria-label="View">
+        <button type="button" role="tab" class="view is-current" data-view="map" aria-selected="true">Map</button>
+        <button type="button" role="tab" class="view" data-view="plan" aria-selected="false">Plan</button>
+        <button type="button" role="tab" class="view" data-view="roster" aria-selected="false">Roster</button>
+      </div>
+    </div>
+
+    <p class="stale" id="stale" role="status" aria-live="polite" hidden></p>
+
+    <section class="field" id="view-map" aria-labelledby="map-h">
+      <h2 id="map-h" class="sr">Battlefield map</h2>
+      <div class="field-frame">
+        <svg class="bgb-map" id="bgb-map" viewBox="0 0 560 535" role="img" aria-label="Battlefield map with the assigned squads on each objective" direction="ltr">
+          <image id="bgb-art" href="../assets/DGF/bgb-battlefield.jpg?v=e58435ea1a" x="0" y="0" width="560" height="535" preserveAspectRatio="xMidYMid slice"></image>
+          <rect x="0" y="0" width="560" height="535" class="field-tint"/>
+          <g id="bgb-labels" class="bgb-labels"></g>
+          <g id="bgb-squads"></g>
+        </svg>
+        <i class="bracket tl"></i><i class="bracket tr"></i><i class="bracket bl"></i><i class="bracket br"></i>
+      </div>
+      <p class="field-help" id="field-help">Tap a squad token to see its pair. Tap one player, then another, to swap them.</p>
+      <aside class="tag detail" id="detail" hidden aria-live="polite"></aside>
+    </section>
+
+    <section class="plan tag" id="view-plan" aria-labelledby="plan-h">
+      <h2 id="plan-h">Plan</h2>
+      <ol class="plan-list" id="plan-list"></ol>
+      <div class="acts">
+        <button type="button" class="btn" id="copy">Copy plan for alliance chat</button>
+        <button type="button" class="btn quiet" id="undo" hidden>Undo last swap</button>
+      </div>
+      <p class="copied" id="copied" role="status" aria-live="polite"></p>
+      <textarea class="sr" id="plan-text" readonly aria-label="Plan text for alliance chat"></textarea>
+    </section>
+
+    <section class="roster" id="view-roster" aria-labelledby="roster-h">
+      <div class="roster-head">
+        <h2 id="roster-h">Roster</h2>
+        <p>Names and CP are shared between teams. Starters are per team. CP accepts values such as 350M and 1.2B.</p>
+        <div class="acts-inline"><button type="button" class="btn quiet" id="add-player">Add player</button><button type="button" class="btn quiet" id="clear-starters">Clear starter selection</button></div>
+      </div>
+      <ol class="roster-list" id="roster-list"></ol>
+    </section>
+  </div>
+
+  <section class="howto" aria-labelledby="how-h">
+    <h2 id="how-h">How to run the plan</h2>
+    <p>This map assumes a lower-left start. R1 to R6 cover the six Oil Refineries. The Hospital and Military pairs stage near their objectives and wait for them to open.</p>
+    <p>Floaters reinforce as called, then stage near the Rare Earth Factory before each alloy spawn. Floater 1 is the primary carrier, Floater 2 is backup, and Floaters 3 and 4 protect the active carrier back to HQ.</p>
+    <p>CP is the generator's only input for strength. The caller can adjust for march speed, survivability and attendance before sharing.</p>
+    <p class="guides">Guides: <a href="https://rdrzteam.com/black-gold-battlefield" target="_blank" rel="noopener">RDRZ</a>, <a href="https://z-war.icu/posts/black-gold-battlefield-team-planner" target="_blank" rel="noopener">Z-War</a>, <a href="https://packsify.com/blogs/dark-war-survival-black-gold-battlefield" target="_blank" rel="noopener">Packsify</a>. Each opens in a new tab.</p>
+    <p class="footnote">Roster names and CP are sample data saved in this browser only. Staging positions are approximate.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><b data-brand-brand>DGF Alliance HQ</b></p>
+  <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+  <p><a href="#bgb-map">Back to top</a></p>
+</footer>
+
+<nav class="bar" aria-label="Pages">
+  <a data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zm8 2 6 6-6 6-6-6z" fill="currentColor"/></svg><span class="l">HQ</span></a>
+  <a data-nav="season"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sym-star"/></svg><span class="l">Season</span></a>
+  <a data-nav="tips"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v14l-4 4H5z" fill="currentColor"/><path d="M8 8h8M8 12h6" stroke="var(--fog)" stroke-width="2"/></svg><span class="l">Tips</span></a>
+  <a data-nav="tools"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18H4zM7 7h10v3H7zm0 6h3v3H7zm7 0h3v3h-3z" fill="currentColor"/></svg><span class="l">Calculators</span></a>
+  <a data-nav="planner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zm6 0v14m6-16v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="l">Planner</span></a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls">Mock · Alliance:
+  <button type="button" data-a="DGF">DGF</button><span>|</span><button type="button" data-a="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="./shell.js?v=0cad67fb2d"></script>
+<script src="./planner.js?v=274faf658e"></script>
+</body>
+</html>

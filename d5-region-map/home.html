@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alliance HQ: season map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Big+Shoulders+Text:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./d5.css?v=60e6889aa3">
+</head>
+<body>
+<a class="skip" href="#map-title">Skip to the map</a>
+
+<header class="strip" aria-label="Alliance">
+  <a class="mark" href="./home.html">
+    <svg class="pennant" viewBox="0 0 44 56" aria-hidden="true"><use href="#sym-pennant"></use><text x="21" y="27" class="pennant-tag" data-brand-tag>DGF</text></svg>
+    <span class="mark-text"><bdi data-brand-name>The Dragonfly</bdi><small>Dark War: Survival</small></span>
+  </a>
+  <nav class="tabs" aria-label="Pages">
+    <a class="tab" data-nav="home">HQ</a>
+    <a class="tab" data-nav="season">Season</a>
+    <a class="tab" data-nav="tips">Tips</a>
+    <a class="tab" data-nav="tools">Calculators</a>
+    <a class="tab" data-nav="planner">Planner</a>
+  </nav>
+  <label class="lang"><span class="sr">Language</span><select id="lang"></select></label>
+</header>
+<p class="soon" id="soon" role="status" aria-live="polite" hidden>Coming in the full build.</p>
+
+<main>
+  <section class="band band-home" aria-label="Alliance identity">
+    <img class="band-art" data-art="hero" alt="" src="../assets/DGF/dragonfly-fortress.webp?v=51a77beb34">
+    <div class="band-text">
+      <svg class="crest" viewBox="0 0 44 56" aria-hidden="true"><use href="#sym-pennant"></use><text x="22" y="29" class="crest-tag" data-brand-tag>DGF</text></svg>
+      <div class="band-name">
+        <p class="band-game">Dark War: Survival</p>
+        <h1 class="band-title"><bdi data-brand-name>The Dragonfly</bdi></h1>
+        <p class="band-motto" data-brand-motto></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="stage" aria-labelledby="map-title">
+    <div class="frame">
+      <div class="cartouche">
+        <h2 id="map-title"><span id="season-name">Season 8: Dinosaur Era</span></h2>
+        <p class="week"><span class="week-n" id="week-n">4</span><span class="week-of">of <span id="week-of">10</span> weeks</span></p>
+        <details class="notice">
+          <summary>Pre-release briefing</summary>
+          <p id="notice-text"></p>
+        </details>
+      </div>
+
+      <div class="next-battle tag" id="next-battle" aria-labelledby="nb-title">
+        <p class="nb-kicker">Next battle, not on this map</p>
+        <h3 id="nb-title">Black Gold Battlefield</h3>
+        <p class="when" id="nb-when">Saturday 20:00 server time</p>
+        <span class="count" id="nb-count"></span>
+        <p class="note">Team A, 20 starters. A separate battlefield with its own map.</p>
+        <p class="act"><a class="btn" href="./planner.html">Open the planner</a></p>
+      </div>
+
+      <svg class="map" id="map" viewBox="20 30 760 712" role="img" aria-labelledby="map-desc" direction="ltr">
+        <desc id="map-desc">Season map: four camps around the Ark Blockade Zone, the Forbidden Zone and the Ark Core. Our camp carries our holdings and HQ; the facing camp is the invasion target; North and South open later.</desc>
+        <defs>
+          <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="10" stroke="var(--bone)" stroke-opacity=".2" stroke-width="1.5"/>
+          </pattern>
+          <filter id="grain" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="7" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 .93  0 0 0 0 .9  0 0 0 0 .82  0 0 0 .5 -.12"/>
+          </filter>
+          <clipPath id="land">
+            <path d="M215 60 420 38 600 55 640 170 560 205 480 185 400 195 320 185 245 205 205 160z"/>
+            <path d="M230 560 300 580 400 572 500 580 570 560 610 620 560 720 420 735 260 715 205 640z"/>
+            <path d="M40 170 170 150 215 215 235 300 215 380 235 470 215 550 160 615 60 590 28 440 45 300z"/>
+            <path d="M760 170 630 150 585 215 565 300 585 380 565 470 585 550 640 615 740 590 772 440 755 300z"/>
+            <path d="M245 220 400 205 555 220 595 380 555 545 400 560 245 545 205 380z"/>
+          </clipPath>
+        </defs>
+
+        <g class="water" aria-hidden="true">
+          <path d="M60 90q12-6 24 0t24 0M640 700q12-6 24 0t24 0M700 110q12-6 24 0t24 0M90 690q12-6 24 0t24 0M30 400q12-6 24 0M740 400q12-6 24 0" />
+        </g>
+
+        <g id="regions">
+          <path class="region r-north later" id="r-north" d="M215 60 420 38 600 55 640 170 560 205 480 185 400 195 320 185 245 205 205 160z"/>
+          <path class="region r-south later" id="r-south" d="M230 560 300 580 400 572 500 580 570 560 610 620 560 720 420 735 260 715 205 640z"/>
+          <path class="region r-west" id="r-west" d="M40 170 170 150 215 215 235 300 215 380 235 470 215 550 160 615 60 590 28 440 45 300z"/>
+          <path class="region r-east" id="r-east" d="M760 170 630 150 585 215 565 300 585 380 565 470 585 550 640 615 740 590 772 440 755 300z"/>
+          <path class="region r-ring" id="r-ring" d="M245 220 400 205 555 220 595 380 555 545 400 560 245 545 205 380z"/>
+          <path class="hatchfill" d="M215 60 420 38 600 55 640 170 560 205 480 185 400 195 320 185 245 205 205 160z"/>
+          <path class="hatchfill" d="M230 560 300 580 400 572 500 580 570 560 610 620 560 720 420 735 260 715 205 640z"/>
+        </g>
+
+        <g class="terrain" aria-hidden="true">
+          <!-- rivers run from the centre out through the camps -->
+          <path class="river" d="M270 300 C230 330 190 350 150 330 S90 300 50 320"/>
+          <path class="river" d="M530 300 C570 330 610 350 650 330 S710 300 750 320"/>
+          <path class="river" d="M330 230 C330 170 360 130 400 110 S470 70 500 56"/>
+          <path class="river" d="M470 540 C470 600 440 640 400 660 S330 700 300 716"/>
+          <!-- ridges in the camps that open later -->
+          <g class="ridge">
+            <path d="M300 120l12-18 12 18zM330 130l10-15 10 15zM520 110l12-18 12 18zM550 125l10-15 10 15zM460 150l9-13 9 13z"/>
+            <path d="M300 650l12-18 12 18zM330 670l10-15 10 15zM500 655l12-18 12 18zM530 680l10-15 10 15zM420 700l9-13 9 13z"/>
+          </g>
+          <!-- contour rings inside the blockade -->
+          <path class="contour" d="M280 262 400 250 520 262 552 380 520 500 400 512 280 500 248 380z"/>
+          <path class="contour" d="M300 290 400 280 500 290 528 380 500 470 400 480 300 470 272 380z"/>
+        </g>
+
+        <g id="regions-inner">
+          <path class="region r-forbidden" id="r-forbidden" d="M320 290 400 275 480 290 515 380 480 470 400 485 320 470 285 380z"/>
+          <path class="region r-core" id="r-core" d="M380 334 420 334 446 360 446 400 420 426 380 426 354 400 354 360z"/>
+        </g>
+
+        <rect class="grain" x="20" y="30" width="760" height="712" clip-path="url(#land)" filter="url(#grain)" aria-hidden="true"/>
+
+        <g class="edges" aria-hidden="true">
+          <path d="M215 60 420 38 600 55 640 170 560 205 480 185 400 195 320 185 245 205 205 160z"/>
+          <path d="M230 560 300 580 400 572 500 580 570 560 610 620 560 720 420 735 260 715 205 640z"/>
+          <path d="M40 170 170 150 215 215 235 300 215 380 235 470 215 550 160 615 60 590 28 440 45 300z"/>
+          <path d="M760 170 630 150 585 215 565 300 585 380 565 470 585 550 640 615 740 590 772 440 755 300z"/>
+          <path d="M245 220 400 205 555 220 595 380 555 545 400 560 245 545 205 380z"/>
+        </g>
+
+        <g id="labels" class="labels">
+          <text class="rname" x="400" y="98" text-anchor="middle">North</text>
+          <text class="rsub" x="400" y="124" text-anchor="middle">Opens later</text>
+          <text class="rname" x="400" y="668" text-anchor="middle">South</text>
+          <text class="rsub" x="400" y="694" text-anchor="middle">Opens later</text>
+          <text class="rname" id="lbl-west" x="128" y="250" text-anchor="middle">West</text>
+          <text class="rsub" id="lbl-west-sub" x="128" y="276" text-anchor="middle">Our camp</text>
+          <text class="rname" id="lbl-east" x="672" y="250" text-anchor="middle">East</text>
+          <text class="rsub" id="lbl-east-sub" x="672" y="276" text-anchor="middle">Facing camp</text>
+          <text class="rsub ring" x="400" y="243" text-anchor="middle">Ark Blockade Zone</text>
+          <text class="rsub forbidden" x="400" y="468" text-anchor="middle">Forbidden Zone</text>
+          <text class="rname core" x="400" y="386" text-anchor="middle">Ark Core</text>
+          <g class="corelock" transform="translate(372 392)"><use href="#sym-lock" width="12" height="14"></use><text class="rsub core" x="16" y="12">Week 10</text></g>
+        </g>
+
+        <g id="route" class="route" aria-hidden="true"></g>
+        <g id="markers" class="markers"></g>
+        <g id="events" class="events"></g>
+      </svg>
+
+      <svg class="leaders" id="leaders" aria-hidden="true"></svg>
+
+      <ul class="hang left" id="hang-left" aria-label="On this map this week"></ul>
+      <ul class="hang right" id="hang-right" aria-label="On this map this week, continued"></ul>
+
+      <ul class="legend" aria-label="Map legend">
+        <li><svg viewBox="-12 -12 24 24"><use href="#sym-mine"/></svg>Mining Site</li>
+        <li><svg viewBox="-14 -14 28 28"><use href="#sym-boost"/></svg>Boosted Mining Site</li>
+        <li><svg viewBox="-10 -12 20 24"><use href="#sym-pass"/></svg>Pass</li>
+        <li><svg viewBox="-8 -8 16 16"><use href="#sym-post"/></svg>Outpost</li>
+        <li><svg viewBox="0 0 44 56"><use href="#sym-pennant"/></svg>Alliance HQ</li>
+        <li><i class="lg-route"></i>Supply route</li>
+      </ul>
+      <i class="bracket tl"></i><i class="bracket tr"></i><i class="bracket bl"></i><i class="bracket br"></i>
+    </div>
+    <p class="footnote">Schedule, holdings and camp placement are sample data; event positions on the map are approximate. Confirm times in game.</p>
+  </section>
+
+  <section class="margin" aria-labelledby="offmap-title">
+    <h2 id="offmap-title">Also not on this map</h2>
+    <ul id="offmap" class="offmap"></ul>
+  </section>
+
+  <section class="panels">
+    <section class="panel diplomacy" aria-labelledby="dip-title">
+      <h2 id="dip-title">Diplomacy</h2>
+      <p class="nap"><span class="nap-n" id="nap-n">8</span><span class="nap-text"><b>NAP</b><span id="nap-note">Non-aggression pact</span></span></p>
+      <h3>Allies</h3>
+      <ul class="allies" id="allies"></ul>
+      <div id="interstate"></div>
+    </section>
+    <section class="panel command" aria-labelledby="cmd-title">
+      <h2 id="cmd-title">Command</h2>
+      <div class="r5" id="r5"></div>
+      <h3>R4 council</h3>
+      <ul class="council" id="council"></ul>
+    </section>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><b data-brand-brand>DGF Alliance HQ</b></p>
+  <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+  <p><a href="#map-title">Back to top</a></p>
+</footer>
+
+<nav class="bar" aria-label="Pages">
+  <a data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zm8 2 6 6-6 6-6-6z" fill="currentColor"/></svg><span class="l">HQ</span></a>
+  <a data-nav="season"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sym-star"/></svg><span class="l">Season</span></a>
+  <a data-nav="tips"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v14l-4 4H5z" fill="currentColor"/><path d="M8 8h8M8 12h6" stroke="var(--fog)" stroke-width="2"/></svg><span class="l">Tips</span></a>
+  <a data-nav="tools"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18H4zM7 7h10v3H7zm0 6h3v3H7zm7 0h3v3h-3z" fill="currentColor"/></svg><span class="l">Calculators</span></a>
+  <a data-nav="planner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zm6 0v14m6-16v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="l">Planner</span></a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls">Mock · Alliance:
+  <button type="button" data-a="DGF">DGF</button><span>|</span><button type="button" data-a="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="./shell.js?v=0cad67fb2d"></script>
+<script src="./d5.js?v=40cd485a38"></script>
+</body>
+</html>
