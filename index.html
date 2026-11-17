@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alliance HQ — 8 design directions</title>
+<style>
+  :root { color-scheme: dark; font: 15px/1.5 system-ui, sans-serif; }
+  body { margin: 0; background: #0e0f10; color: #e9e9e6; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { margin: 0 0 4px; font-size: 1.6rem; }
+  .lede { color: #a9aba6; margin: 0 0 28px; max-width: 70ch; }
+  .row { border-top: 1px solid #2a2c2e; padding: 24px 0; display: grid; grid-template-columns: 260px 1fr; gap: 20px; }
+  .row h2 { margin: 0; font-size: 1.15rem; }
+  .row p { color: #a9aba6; margin: 6px 0 12px; }
+  .row .meta a { color: #e9e9e6; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .shot { display: grid; gap: 6px; color: inherit; text-decoration: none; }
+  .shot img { width: 100%; aspect-ratio: 1440/900; object-fit: cover; object-position: top; border: 1px solid #2a2c2e; border-radius: 6px; background: #1a1b1d; }
+  .shot span { color: #a9aba6; font-size: .85rem; }
+  .shot:hover img, .shot:focus-visible img { border-color: #e9e9e6; }
+  .tag { display: inline-block; font-size: .75rem; padding: 1px 8px; border: 1px solid #3a3d40; border-radius: 99px; color: #c9cbc6; }
+  @media (max-width: 800px) { .row { grid-template-columns: 1fr; } .shots { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Alliance HQ: 8 design directions</h1>
+  <p class="lede">Three working screens each (HQ, Calculators, Black Gold Battlefield planner), for both DGF and GIR, using
+    the alliances' own art and real data from the current sites. Click a screen to open it on desktop and phone side by side.
+    Built from the alliances' own art and the real calculators and planner logic from the current DGF and GIR sites. Event times are sample data.</p>
+  <div id="rows"></div>
+</div>
+<script>
+  const dirs = [
+    ["d1-journal", "1 · Survivor's Journal", "Torn paper strips, pinned photos and stamped pictograms over cold fog art. The season as a brushed caption, the planner as per-member strips."],
+    ["d2-command", "2 · Command Panels", "Mobile-strategy game panels in gritty steel: title tabs, bevel buttons, colour with jobs, a rank insignia ladder."],
+    ["d3-poster", "3 · Poster Type", "Game-publisher site grammar: type as architecture, a vertical alliance-tag rail, the countdown as a poster numeral."],
+    ["d4-tech-tree", "4 · Tech Tree", "Node trees in heavy frames over fog: the season as a tree to the Ark Core, research as a cost chain."],
+    ["d5-region-map", "5 · Region Map", "Flat bold strategy map: the season's camps as solid regions with markers; the BGB planner with squads as tokens."],
+    ["d6-squad", "6 · Squad Select", "Character-select grammar: R5 large, a portrait strip, squad slots with silhouettes for the empty ones."],
+    ["d7-armory", "7 · Armory Grid", "Loadout and buy-menu grammar: angled plates, speedups as item cells with counts and a loadout-style total."],
+    ["d8-timetable", "8 · Event Board", "A light page with a dark event slab: Active now and Coming up, the countdown the biggest thing in each row."]
+  ];
+  const screens = [["home", "HQ"], ["calc", "Calculators"], ["planner", "BGB Planner"]];
+  document.getElementById("rows").innerHTML = dirs.map(([f, name, idea]) => `
+    <section class="row">
+      <div class="meta"><h2>${name}</h2><p>${idea}</p>
+        <a href="./view.html?m=${f}&s=home&a=DGF">DGF</a> · <a href="./view.html?m=${f}&s=home&a=GIR">GIR</a></div>
+      <div class="shots">${screens.map(([s, label]) => `
+        <a class="shot" href="./view.html?m=${f}&s=${s}&a=DGF"><img loading="lazy" src="./${f}/thumb-${s}.png?v=${Date.now()}" alt="${name}, ${label}"
+          onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'tag',textContent:'building…'}))"><span>${label}</span></a>`).join("")}
+      </div>
+    </section>`).join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alliance HQ mock viewer</title>
+<style>
+  :root { color-scheme: dark; font: 14px/1.4 system-ui, sans-serif; }
+  body { margin: 0; background: #0e0f10; color: #e9e9e6; }
+  header { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 10px 16px; border-bottom: 1px solid #2a2c2e; position: sticky; top: 0; background: #0e0f10; z-index: 2; }
+  header a, header button { color: inherit; background: #1c1e20; border: 1px solid #34373a; border-radius: 6px; padding: 6px 10px; font: inherit; cursor: pointer; text-decoration: none; }
+  header button[aria-pressed="true"] { background: #e9e9e6; color: #0e0f10; }
+  .title { font-weight: 700; margin-inline-end: auto; }
+  main { display: flex; gap: 24px; padding: 20px; align-items: flex-start; justify-content: center; }
+  .frame { display: grid; gap: 6px; }
+  .frame small { color: #9a9c98; }
+  .desk { width: min(1100px, calc(100vw - 480px)); aspect-ratio: 1440 / 900; overflow: hidden; border: 1px solid #34373a; border-radius: 8px; position: relative; }
+  .desk iframe { width: 1440px; height: 900px; border: 0; transform-origin: 0 0; position: absolute; inset: 0 auto auto 0; }
+  .phone iframe { width: 390px; height: 844px; border: 1px solid #34373a; border-radius: 22px; background: #000; }
+  @media (max-width: 900px) { .desk-wrap { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <span class="title" id="t">Mock</span>
+  <span id="pages"></span>
+  <span><button data-a="DGF">DGF</button> <button data-a="GIR">GIR</button></span>
+  <a href="./index.html">All directions</a>
+</header>
+<main>
+  <div class="frame desk-wrap"><small>Desktop 1440</small><div class="desk"><iframe id="d" title="Desktop view"></iframe></div></div>
+  <div class="frame phone"><small>Phone 390</small><iframe id="p" title="Phone view"></iframe></div>
+</main>
+<script>
+  const q = new URLSearchParams(location.search);
+  const m = q.get("m") || "d1-journal";
+  let page = q.get("s") || "home";
+  let a = q.get("a") || "DGF";
+  const names = { home: "HQ", calc: "Calculators", planner: "BGB Planner" };
+  document.getElementById("t").textContent = m;
+  const pages = document.getElementById("pages");
+  for (const s of Object.keys(names)) {
+    const b = document.createElement("button");
+    b.textContent = names[s]; b.dataset.s = s; pages.append(b, " ");
+  }
+  function load() {
+    const src = `./${m}/${page}.html?a=${a}`;
+    document.getElementById("d").src = src;
+    document.getElementById("p").src = src;
+    document.querySelectorAll("[data-s]").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === page));
+    document.querySelectorAll("[data-a]").forEach(b => b.setAttribute("aria-pressed", b.dataset.a === a));
+    history.replaceState(null, "", `?m=${m}&s=${page}&a=${a}`);
+  }
+  document.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.s) page = b.dataset.s;
+    if (b.dataset.a) a = b.dataset.a;
+    load();
+  });
+  const fit = () => { const box = document.querySelector(".desk"); document.getElementById("d").style.transform = `scale(${box.clientWidth / 1440})`; };
+  addEventListener("resize", fit); fit(); load();
+</script>
+</body>
+</html>
