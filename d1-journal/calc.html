@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="journal.css?v=2e61aae3d1">
+<link rel="stylesheet" href="calc.css?v=418cbdcf28">
+</head>
+<body data-page="tools">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="stamp" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.15" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+    <symbol id="pin" viewBox="0 0 24 24"><circle cx="12" cy="10" r="8" fill="#b8792a"/><circle cx="12" cy="10" r="8" fill="url(#pinShade)"/><circle cx="9.5" cy="7.5" r="2.4" fill="#f6d38a" opacity=".8"/><path d="M12 17v6" stroke="#4a3a24" stroke-width="2"/></symbol>
+    <radialGradient id="pinShade" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#f1b85a"/><stop offset="1" stop-color="#8a5718"/></radialGradient>
+    <!-- resource stamps: filled pictograms in alliance ink -->
+    <symbol id="rs-wood" viewBox="0 0 48 48"><path d="M6 16h26v16H6z"/><ellipse cx="34" cy="24" rx="8" ry="8"/><ellipse cx="34" cy="24" rx="4.5" ry="4.5" fill="#ece4d2" opacity=".45"/><ellipse cx="34" cy="24" rx="1.6" ry="1.6"/><path d="M8 20h22M8 28h22" stroke="#ece4d2" stroke-width="1.6" opacity=".35"/></symbol>
+    <symbol id="rs-iron" viewBox="0 0 48 48"><path d="M10 30 16 16h22l-6 14Z"/><path d="M4 34h26l6-14-6 14Z" opacity=".0"/><path d="M8 34h24l-4 6H4Z"/><path d="M14 20h12" stroke="#ece4d2" stroke-width="2" opacity=".4"/></symbol>
+    <symbol id="rs-electricity" viewBox="0 0 48 48"><path d="M27 4 10 27h11l-3 17 20-25H27Z"/></symbol>
+    <symbol id="rs-coin" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="13" fill="#ece4d2" opacity=".35"/><path d="M20 15h8l-2 6h4l-9 12 2-8h-4Z"/></symbol>
+    <symbol id="rs-badge" viewBox="0 0 48 48"><path d="M24 4 40 10v12c0 10-7 17-16 22C15 39 8 32 8 22V10Z"/><path d="m24 14 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z" fill="#ece4d2" opacity=".5"/></symbol>
+    <symbol id="rs-crystal" viewBox="0 0 48 48"><path d="M24 4 40 18 24 44 8 18Z"/><path d="M8 18h32L24 24Z" fill="#ece4d2" opacity=".35"/></symbol>
+    <symbol id="rs-speedup" viewBox="0 0 48 48"><circle cx="24" cy="27" r="17"/><path d="M19 4h10v5H19z"/><path d="M24 27V16M24 27l8 5" stroke="#ece4d2" stroke-width="3" stroke-linecap="round" opacity=".8"/></symbol>
+    <symbol id="rs-pass" viewBox="0 0 48 48"><path d="M8 40V18l16-12 16 12v22h-9V26H17v14Z"/></symbol>
+    <symbol id="rs-mine" viewBox="0 0 48 48"><path d="M6 40 24 10l18 30Z"/><path d="M24 20 31 40H17Z" fill="#ece4d2" opacity=".4"/></symbol>
+    <symbol id="rs-rate" viewBox="0 0 48 48"><path d="M6 36 18 22l8 8 14-18v10l-14 18-8-8L6 44Z"/></symbol>
+    <symbol id="rs-capture" viewBox="0 0 48 48"><path d="M10 4h6v40h-6z"/><path d="M16 6h26l-7 9 7 9H16Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="id-strip" id="top">
+  <div class="id-sheet torn" data-seed="11">
+    <span class="tape tape-l" aria-hidden="true"></span>
+    <a class="brand" href="home.html">
+      <span class="tag-stamp" id="tagStamp">DGF</span>
+      <span class="brand-text"><bdi class="brand-name" id="brandName">The Dragonfly</bdi><span class="brand-motto" id="brandMotto"></span></span>
+    </a>
+    <nav class="top-nav" aria-label="Main" id="navTop"></nav>
+    <div class="lang" id="lang">
+      <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langList">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.5 2.3C8.3 6 7.3 8.8 7.1 11H4.1a8 8 0 0 1 6.4-6.7ZM4.1 13h3c.2 2.2 1.2 5 3.4 6.7A8 8 0 0 1 4.1 13Zm5 0h5.8c-.2 2.6-1.4 5-2.9 6.4-1.5-1.4-2.7-3.8-2.9-6.4Zm0-2c.2-2.6 1.4-5 2.9-6.4 1.5 1.4 2.7 3.8 2.9 6.4Zm7.8 2h3a8 8 0 0 1-6.4 6.7c2.2-1.7 3.2-4.5 3.4-6.7Zm0-2c-.2-2.2-1.2-5-3.4-6.7A8 8 0 0 1 19.9 11Z" fill="currentColor"/></svg>
+        <span id="langName">English</span>
+      </button>
+      <ul class="lang-list torn" data-seed="29" id="langList" role="listbox" aria-label="Language" hidden></ul>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="w-hero" aria-labelledby="wTitle">
+    <img class="hero-art" id="heroArt" src="../assets/DGF/calculator-workshop.webp?v=0fa4129f64" alt="">
+    <div class="hero-fog" aria-hidden="true"></div>
+    <div class="w-caption">
+      <h1 class="brush brush-main" id="wTitle"><span class="brush-line">The workshop</span></h1>
+      <p class="brush brush-sub">Five recipes. What we need, how long.</p>
+    </div>
+    <nav class="contents" aria-label="Calculators on this page">
+      <a class="tag torn" href="#speedups"><span class="tag-title">Speedups</span><span class="tag-sub">Will they cover the timer</span></a>
+      <a class="tag torn" href="#research"><span class="tag-title">Research</span><span class="tag-sub">Cost and time of a chain</span></a>
+      <a class="tag torn" href="#goal"><span class="tag-title">Resource goal</span><span class="tag-sub">When we reach a target</span></a>
+      <a class="tag torn" href="#crystals"><span class="tag-title">Crystals</span><span class="tag-sub">Monday settlement</span></a>
+      <a class="tag torn" href="#capture"><span class="tag-title">Capture</span><span class="tag-sub">Time left on a Mining Site</span></a>
+      <a class="tag torn tag-ext" href="#atlantis"><span class="tag-title">ATLANTIS HUB</span><span class="tag-sub">Ten more tools, external</span></a>
+    </nav>
+  </section>
+
+  <!-- Recipe 1: Speedup inventory -->
+  <section class="recipe-card torn" data-seed="121" id="speedups" aria-labelledby="spTitle">
+    <svg class="pin pin-tr" aria-hidden="true"><use href="#pin"/></svg>
+    <header class="rc-head">
+      <h2 class="rc-title" id="spTitle">Speedup inventory</h2>
+      <p class="rc-desc">Total your speedups and compare them with the in-game timer for a planned upgrade.</p>
+    </header>
+    <form class="rc-body" id="spForm" novalidate>
+      <fieldset class="shelf">
+        <legend class="rc-sub">What we have</legend>
+        <div class="cells">
+          <label class="cell"><svg class="stamp" aria-hidden="true"><use href="#rs-speedup"/></svg><span class="cell-name">1-minute items</span>
+            <span class="count"><button type="button" class="step" data-step="-1" data-for="one" aria-label="One fewer 1-minute item">−</button><input class="inp" id="sp-one" name="one" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><button type="button" class="step" data-step="1" data-for="one" aria-label="One more 1-minute item">+</button></span></label>
+          <label class="cell"><svg class="stamp" aria-hidden="true"><use href="#rs-speedup"/></svg><span class="cell-name">5-minute items</span>
+            <span class="count"><button type="button" class="step" data-step="-1" data-for="five" aria-label="One fewer 5-minute item">−</button><input class="inp" id="sp-five" name="five" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><button type="button" class="step" data-step="1" data-for="five" aria-label="One more 5-minute item">+</button></span></label>
+          <label class="cell"><svg class="stamp" aria-hidden="true"><use href="#rs-speedup"/></svg><span class="cell-name">1-hour items</span>
+            <span class="count"><button type="button" class="step" data-step="-1" data-for="sixty" aria-label="One fewer 1-hour item">−</button><input class="inp" id="sp-sixty" name="sixty" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><button type="button" class="step" data-step="1" data-for="sixty" aria-label="One more 1-hour item">+</button></span></label>
+          <label class="cell cell-wide"><svg class="stamp" aria-hidden="true"><use href="#rs-speedup"/></svg><span class="cell-name">Other speedups, in minutes</span>
+            <span class="count"><input class="inp" id="sp-extra" name="extra" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"></span></label>
+        </div>
+      </fieldset>
+      <fieldset class="timer">
+        <legend class="rc-sub">What it must cover</legend>
+        <p class="hint">The remaining upgrade timer, as the game shows it.</p>
+        <div class="dhm">
+          <label><input class="inp" id="sp-d" name="d" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><span>days</span></label>
+          <label><input class="inp" id="sp-h" name="h" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><span>hours</span></label>
+          <label><input class="inp" id="sp-m" name="m" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><span>minutes</span></label>
+        </div>
+      </fieldset>
+      <div class="ledger-out" aria-live="polite" id="spOut"></div>
+      <div class="actions">
+        <button type="button" class="btn" id="spExample">Load example</button>
+        <button type="button" class="btn-ink" id="spReset">Reset</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Recipe 2: Research budget -->
+  <section class="recipe-card torn" data-seed="134" id="research" aria-labelledby="rsTitle">
+    <span class="tape tape-c" aria-hidden="true"></span>
+    <header class="rc-head">
+      <h2 class="rc-title" id="rsTitle">Research budget</h2>
+      <p class="rc-desc">Add one research step per row using base values: wood, iron, electricity, coin, badges and time in minutes. Example: 1000, 500, 300, 2000, 5, 120.</p>
+    </header>
+    <form class="rc-body" id="rsForm" novalidate>
+      <div class="steps-wrap">
+        <div class="steps-head" aria-hidden="true">
+          <span></span>
+          <span><svg class="stamp s-sm"><use href="#rs-wood"/></svg>Wood</span>
+          <span><svg class="stamp s-sm"><use href="#rs-iron"/></svg>Iron</span>
+          <span><svg class="stamp s-sm"><use href="#rs-electricity"/></svg>Electricity</span>
+          <span><svg class="stamp s-sm"><use href="#rs-coin"/></svg>Coin</span>
+          <span><svg class="stamp s-sm"><use href="#rs-badge"/></svg>Badges</span>
+          <span><svg class="stamp s-sm"><use href="#rs-speedup"/></svg>Minutes</span>
+          <span></span>
+        </div>
+        <ol class="steps" id="steps"></ol>
+        <p class="err" id="rsErr" aria-live="polite"></p>
+        <button type="button" class="btn-ink" id="rsAdd">Add a step</button>
+      </div>
+      <fieldset class="mods">
+        <legend class="rc-sub">Bonuses</legend>
+        <label><span>Research speed bonus %</span><input class="inp" id="rs-speed" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"></label>
+        <label><span>Reduction on wood, iron, electricity and coin %</span><input class="inp" id="rs-discount" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"></label>
+        <label><span>Speedups available, minutes</span><input class="inp" id="rs-speedups" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"></label>
+      </fieldset>
+      <div class="ledger-out" aria-live="polite" id="rsOut"></div>
+      <div class="actions">
+        <button type="button" class="btn" id="rsExample">Load example</button>
+        <button type="button" class="btn-ink" id="rsReset">Reset</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Three small notes -->
+  <section class="notes" aria-label="Quick calculators">
+    <form class="note-card torn" data-seed="151" id="goal" novalidate aria-labelledby="goalTitle">
+      <h2 class="nc-title" id="goalTitle"><svg class="stamp" aria-hidden="true"><use href="#rs-rate"/></svg>Resource goal</h2>
+      <p class="rc-desc">How long to reach a target at a steady rate, such as Dino Scales per hour.</p>
+      <label><span>In storage</span><input class="inp" name="owned" inputmode="numeric" autocomplete="off" value="1200"></label>
+      <label><span>Target amount</span><input class="inp" name="target" inputmode="numeric" autocomplete="off" value="5000"></label>
+      <label><span>Net gain per hour</span><input class="inp" name="rate" inputmode="numeric" autocomplete="off" value="150"></label>
+      <p class="nc-out" aria-live="polite"></p>
+    </form>
+    <form class="note-card torn" data-seed="163" id="crystals" novalidate aria-labelledby="cryTitle">
+      <h2 class="nc-title" id="cryTitle"><svg class="stamp" aria-hidden="true"><use href="#rs-crystal"/></svg>Weekly crystal estimate</h2>
+      <p class="rc-desc">Payouts for holdings you keep through Monday settlement, including an active Abundant Effect.</p>
+      <div class="pair"><label><span>Regular Mines</span><input class="inp" name="regularCount" inputmode="numeric" autocomplete="off" value="4"></label><label><span>Crystals each</span><input class="inp" name="regularPayout" inputmode="numeric" autocomplete="off" value="2500"></label></div>
+      <div class="pair"><label><span>Boosted Mines</span><input class="inp" name="boostedCount" inputmode="numeric" autocomplete="off" value="2"></label><label><span>Crystals each</span><input class="inp" name="boostedPayout" inputmode="numeric" autocomplete="off" value="3750"></label></div>
+      <div class="pair"><label><span>Passes</span><input class="inp" name="passCount" inputmode="numeric" autocomplete="off" value="3"></label><label><span>Crystals each</span><input class="inp" name="passPayout" inputmode="numeric" autocomplete="off" value="1200"></label></div>
+      <p class="nc-out" aria-live="polite"></p>
+    </form>
+    <form class="note-card torn" data-seed="172" id="capture" novalidate aria-labelledby="capTitle2">
+      <h2 class="nc-title" id="capTitle2"><svg class="stamp" aria-hidden="true"><use href="#rs-capture"/></svg>Mining Site capture</h2>
+      <p class="rc-desc">Remaining control time at a steady capture rate. The default full-capture time comes from the pre-release guide.</p>
+      <label><span>Current camp progress %</span><input class="inp" name="progress" inputmode="numeric" autocomplete="off" value="35"></label>
+      <label><span>Full capture time, minutes</span><input class="inp" name="full" inputmode="numeric" autocomplete="off" value="30"></label>
+      <p class="nc-out" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="ext torn" data-seed="181" id="atlantis" aria-labelledby="extTitle">
+    <h2 class="rc-title" id="extTitle">More calculators from ATLANTIS HUB</h2>
+    <p class="rc-desc">Deeper tools live on atlantisdws.com. Each link opens in a new tab.</p>
+    <ul class="ext-list" id="extList"></ul>
+  </section>
+
+  <footer class="foot">
+    <p><bdi id="footBrand">DGF Alliance HQ</bdi>. Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+</main>
+
+<nav class="bottom-nav" aria-label="Main, phone" id="navBottom"></nav>
+<div class="mock" role="group" aria-label="Mock controls" dir="ltr">
+  <span>Mock · Alliance:</span>
+  <button type="button" data-a="DGF" aria-pressed="true">DGF</button><span class="mock-sep">|</span><button type="button" data-a="GIR" aria-pressed="false">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="shell.js?v=7c8fdfdd71"></script>
+<script src="calc.js?v=82a27288c6"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* d1-journal calculators: the workshop. Recipe cards on paper over the alliance's workshop art. */
+.w-hero { position: relative; isolation: isolate; margin-top: -78px; padding: 128px 48px 36px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.w-hero .hero-art { object-position: 50% 45%; }
+.w-caption { display: flex; flex-direction: column; align-items: flex-start; }
+.contents { display: flex; flex-wrap: wrap; gap: 18px 22px; max-width: 1100px; }
+.contents .tag { flex: 1 1 160px; max-width: 240px; transform: rotate(var(--r, -1deg)); }
+.contents .tag:nth-child(2n) { --r: .9deg; } .contents .tag:nth-child(3n) { --r: -.4deg; }
+.tag-ext .tag-title { color: var(--ink); }
+
+.recipe-card { margin: 36px 48px 0; padding: 30px 36px 34px; color: var(--charcoal); max-width: 1180px; }
+.recipe-card:nth-of-type(2) { transform: rotate(-.35deg); }
+.recipe-card:nth-of-type(3) { transform: rotate(.4deg); margin-top: 44px; }
+.rc-head { display: grid; gap: 6px; max-width: 70ch; }
+.rc-title { font: 900 38px/1 var(--display); }
+.rc-desc { font-size: 16px; line-height: 1.4; color: #3d372e; }
+.rc-sub { font: 700 19px/1.2 var(--body); padding: 0; margin-bottom: 10px; }
+.rc-body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 26px 40px; margin-top: 22px; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.hint { font-size: 15px; color: #5a5245; margin: -4px 0 10px; }
+
+/* fill-in boxes */
+.inp {
+  width: 100%; min-height: 46px; border: 0; border-bottom: 2px solid #8e836b; background: rgba(255, 255, 255, .38);
+  font: 700 22px/1 var(--body); color: var(--charcoal); padding: 6px 10px 4px; text-align: center; font-variant-numeric: tabular-nums;
+}
+.inp:focus { outline: 3px solid var(--amber); outline-offset: 2px; border-bottom-color: var(--charcoal); }
+.inp[aria-invalid="true"] { border-bottom-color: var(--red); background: rgba(226, 48, 42, .08); }
+.step { min-width: 44px; min-height: 46px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font: 900 26px/1 var(--display); cursor: pointer; filter: url(#stamp); }
+.step:hover { background: rgba(0, 0, 0, .06); }
+.count { display: grid; grid-template-columns: 44px 1fr 44px; gap: 6px; align-items: stretch; }
+.cell-wide .count { grid-template-columns: 1fr; }
+
+.cells { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 22px; }
+.cell { display: grid; grid-template-columns: 44px 1fr; grid-template-areas: "s n" "c c"; gap: 6px 10px; align-items: center; }
+.cell .stamp { grid-area: s; width: 44px; height: 44px; }
+.cell-name { grid-area: n; font: 700 17px/1.2 var(--body); }
+.cell .count { grid-area: c; }
+.cell-wide { grid-column: 1 / -1; grid-template-columns: 44px 1fr; grid-template-areas: "s n" "s c"; }
+.cell-wide .count { max-width: 260px; }
+
+.dhm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.dhm label { display: grid; gap: 4px; text-align: center; font-size: 15px; color: #3d372e; }
+.dhm .inp { font-size: 28px; min-height: 60px; }
+
+/* result ledger */
+.ledger-out { grid-column: 1 / -1; border-top: 2px dashed #a89c82; padding-top: 16px; display: grid; gap: 6px; }
+.ledger-out .row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 16px; font-size: 17px; }
+.ledger-out .row b { font: 700 24px/1 var(--body); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ledger-out .row.big b { font-size: 36px; color: var(--ink); }
+.ledger-out .row .dots { border-bottom: 2px dotted #a89c82; align-self: end; margin-bottom: 6px; }
+.ledger-out .row { grid-template-columns: auto 1fr auto; }
+.ledger-out .line { font-size: 16px; color: #3d372e; margin-top: 6px; }
+.ledger-out .ok { color: #2f5a2a; font-weight: 700; }
+.res-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.res-list li { display: grid; grid-template-columns: 36px 1fr; gap: 8px; align-items: center; }
+.res-list .stamp { width: 36px; height: 36px; }
+.res-list b { display: block; font: 700 22px/1 var(--body); font-variant-numeric: tabular-nums; }
+.res-list span { font-size: 14px; color: #5a5245; }
+
+.actions { grid-column: 1 / -1; display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+.btn { border: 0; cursor: pointer; }
+.btn-ink { min-height: 46px; padding: 8px 18px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font: 700 19px/1 var(--display); cursor: pointer; filter: url(#stamp); }
+.btn-ink:hover { background: rgba(0, 0, 0, .06); }
+
+/* research steps */
+.steps-wrap { grid-column: 1 / -1; min-width: 0; }
+.steps-head, .steps li { display: grid; grid-template-columns: 56px repeat(6, 1fr) 48px; gap: 8px; align-items: end; }
+.steps-head span { display: flex; align-items: center; gap: 4px; font: 700 14px/1 var(--body); color: #3d372e; padding-bottom: 6px; }
+.stamp.s-sm { width: 22px; height: 22px; }
+.steps { display: grid; gap: 10px; }
+.steps li { align-items: center; }
+.steps .n { font: 700 18px/1 var(--body); color: #5a5245; }
+.steps .inp { font-size: 18px; padding-inline: 6px; }
+.steps .fl { display: none; }
+.steps .rm { min-width: 44px; min-height: 44px; border: 0; background: transparent; color: #5a5245; font: 900 22px/1 var(--display); cursor: pointer; }
+.steps .rm:hover { color: var(--red); }
+.err { min-height: 22px; color: var(--red); font-weight: 700; font-size: 15px; margin: 8px 0 6px; }
+.err:empty { margin: 0; min-height: 0; }
+#rsAdd { margin-top: 6px; }
+.mods { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 22px; }
+.mods legend { grid-column: 1 / -1; }
+.mods label { display: grid; gap: 4px; font-size: 15px; color: #3d372e; }
+
+/* small notes */
+.notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 48px 48px 0; max-width: 1180px; }
+.note-card { padding: 24px 24px 26px; color: var(--charcoal); display: grid; gap: 12px; align-content: start; transform: rotate(var(--r, -.6deg)); }
+.note-card:nth-child(2) { --r: .7deg; } .note-card:nth-child(3) { --r: -.3deg; }
+.nc-title { display: flex; align-items: center; gap: 10px; font: 900 26px/1 var(--display); }
+.nc-title .stamp { width: 36px; height: 36px; }
+.note-card label { display: grid; gap: 4px; font-size: 15px; color: #3d372e; }
+.note-card .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.nc-out { border-top: 2px dashed #a89c82; padding-top: 12px; font: 700 20px/1.2 var(--body); }
+.nc-out small { display: block; font: 400 15px/1.3 var(--body); color: #3d372e; margin-top: 4px; }
+
+/* external */
+.ext { margin: 48px 48px 0; padding: 28px 32px 30px; color: var(--charcoal); max-width: 1180px; transform: rotate(.25deg); }
+.ext-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; margin-top: 16px; }
+.ext-list li { border-top: 1px dashed #a89c82; }
+.ext-list a { position: relative; display: block; min-height: 52px; padding: 10px 2px; text-decoration: none; color: var(--charcoal); }
+.ext-list a:hover b { text-decoration: underline; }
+.ext-list b { font: 700 20px/1.1 var(--display); }
+.ext-list span { font-size: 15px; color: #3d372e; }
+.ext-list i { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@media (max-width: 1100px) {
+  .rc-body { grid-template-columns: 1fr; }
+  .notes { grid-template-columns: 1fr 1fr; }
+  .mods { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .w-hero { margin-top: -70px; padding: 100px 16px 28px; }
+  .contents { gap: 12px; }
+  .contents .tag { flex: 1 1 44%; max-width: none; }
+  .recipe-card, .notes, .ext { margin-inline: 12px; }
+  .recipe-card { padding: 22px 18px 26px; }
+  .rc-title { font-size: 32px; }
+  .cells { grid-template-columns: 1fr; }
+  .cell-wide .count { max-width: none; }
+  .steps-head { display: none; }
+  .steps li { grid-template-columns: 36px 1fr 1fr 1fr; grid-template-areas: "n a b c" "x d e f"; }
+  .steps li .n { grid-area: n; }
+  .steps li .inp { font-size: 17px; }
+  .steps li .f1 { grid-area: a; } .steps li .f2 { grid-area: b; } .steps li .f3 { grid-area: c; }
+  .steps li .f4 { grid-area: d; } .steps li .f5 { grid-area: e; } .steps li .f6 { grid-area: f; }
+  .steps li .rm { grid-area: x; }
+  .steps li { padding-bottom: 10px; border-bottom: 1px dashed #a89c82; }
+  .steps .fl { display: block; font-size: 12px; color: #5a5245; margin-bottom: 2px; }
+  .mods { grid-template-columns: 1fr; }
+  .notes { grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+  .ext { padding: 22px 18px; }
+  .ext-list { grid-template-columns: 1fr; }
+  .ledger-out .row.big b { font-size: 30px; }
+}
