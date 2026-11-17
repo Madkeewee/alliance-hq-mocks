@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Gold Battlefield planner. Alliance HQ (d7 Armory Grid)</title>
+<meta name="theme-color" content="#1C211F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Saira:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css?v=d2b2063767">
+</head>
+<body data-page="planner">
+<div id="shell"></div>
+
+<main id="main" tabindex="-1">
+  <div class="pagehead">
+    <h1>Black Gold Battlefield</h1>
+    <p class="lede">Save the alliance roster, update each player's strongest march CP, and select 20 starters for Team A or Team B.</p>
+  </div>
+  <div class="pl-head">
+    <div class="seg" role="group" aria-label="Team">
+      <button type="button" data-team="A" aria-pressed="true">Team A</button>
+      <button type="button" data-team="B" aria-pressed="false">Team B</button>
+    </div>
+    <p class="teamcount" id="teamCount" aria-live="polite"></p>
+    <div class="seg segview" role="group" aria-label="Section">
+      <button type="button" data-view="plan" aria-pressed="true">Plan</button>
+      <button type="button" data-view="map" aria-pressed="false">Map</button>
+      <button type="button" data-view="roster" aria-pressed="false">Roster</button>
+    </div>
+  </div>
+  <div class="state-bar" id="stateBar" role="status" aria-live="polite"></div>
+
+  <div class="pl-grid">
+    <section class="pv on" data-pv="plan" aria-labelledby="planTitle">
+      <h2 class="vh" id="planTitle">Assignments</h2>
+      <div class="objs" id="objs"></div>
+      <div class="plan-actions">
+        <button type="button" class="btn quiet" id="undo" disabled>Undo swap</button>
+        <span class="hint" id="swapHint">Tap a player, then another, to swap them.</span>
+      </div>
+      <div class="chat">
+        <label class="vh" for="chatText">Alliance chat message</label>
+        <textarea id="chatText" readonly></textarea>
+        <div class="actions"><button type="button" class="btn" id="copy">Copy plan for alliance chat</button></div>
+      </div>
+    </section>
+    <aside class="pv mapbox plate" data-pv="map" aria-labelledby="mapTitle">
+      <div class="in">
+        <h2 class="vh" id="mapTitle">Battlefield map</h2>
+        <div id="map"></div>
+        <p class="map-cap">Lower-left start. Pins mark approximate staging; the caller adjusts for march speed, survivability and attendance.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="roster pv" data-pv="roster" aria-labelledby="rosterTitle">
+    <h2 class="strip"><span class="strip-title" id="rosterTitle">Roster</span><span class="strip-note">Names and CP are shared by both teams. CP accepts 350M, 1.2B or 1,200,000.</span></h2>
+    <div class="ro-grid" id="roster"></div>
+    <div class="actions">
+      <button type="button" class="btn quiet" id="addPlayer">Add player</button>
+      <button type="button" class="btn quiet" id="clearStarters">Clear starter selection</button>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="foot"></footer>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="app.js?v=dfbd3ffd01"></script>
+<script src="planner.js?v=71eb14e13e"></script>
+<script>HQ.init();</script>
+</body>
+</html>

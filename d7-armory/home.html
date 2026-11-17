@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HQ. Alliance HQ (d7 Armory Grid)</title>
+<meta name="theme-color" content="#1C211F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Saira:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css?v=d2b2063767">
+</head>
+<body data-page="home">
+<div id="shell"></div>
+
+<main id="main" tabindex="-1">
+  <section class="field" aria-labelledby="h1">
+    <div class="hero">
+      <div class="identity plate on-art">
+        <div class="in">
+          <p class="game">Dark War: Survival</p>
+          <h1 class="ident" id="h1"><span class="tag" id="tag">DGF</span><span class="name" id="name">The Dragonfly</span></h1>
+          <p class="motto" id="motto"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="loadout">
+      <h2 class="strip"><span class="strip-title">Next up</span><span class="strip-note" id="seasonLine"></span></h2>
+      <article class="primary plate on-art" id="primary" aria-live="polite" aria-atomic="true"></article>
+      <ul class="secondaries" id="secondaries" role="list" aria-label="Other upcoming events"></ul>
+    </div>
+    <p class="caveat" id="caveat"></p>
+  </section>
+
+  <section class="armory" aria-labelledby="armoryTitle">
+    <h2 class="strip"><span class="strip-title" id="armoryTitle">Armory</span><span class="strip-note">Calculators, the Black Gold Battlefield planner, the season guide and member tips</span></h2>
+    <ul class="tiles" id="tiles" role="list"></ul>
+  </section>
+
+  <section class="alliance">
+    <div class="council" aria-labelledby="councilTitle">
+      <h2 class="strip"><span class="strip-title" id="councilTitle">Council</span><span class="strip-note" id="councilNote"></span></h2>
+      <div class="r5 plate" id="r5"></div>
+      <h3 class="r4h" id="r4h">R4 council</h3>
+      <ul class="r4" id="r4" role="list" aria-labelledby="r4h"></ul>
+    </div>
+    <div class="diplo" aria-labelledby="diploTitle">
+      <h2 class="strip"><span class="strip-title" id="diploTitle">Diplomacy</span><span class="strip-note">Check before you hit anyone</span></h2>
+      <div class="diplo-grid" id="diplo"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="foot"></footer>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="app.js?v=dfbd3ffd01"></script>
+<script src="home.js?v=fef4e98323"></script>
+<script>HQ.init();</script>
+</body>
+</html>

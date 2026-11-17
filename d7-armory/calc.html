@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculators. Alliance HQ (d7 Armory Grid)</title>
+<meta name="theme-color" content="#1C211F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Saira:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css?v=d2b2063767">
+</head>
+<body data-page="calc">
+<div id="shell"></div>
+
+<main id="main" tabindex="-1">
+  <div class="pagehead">
+    <h1>Calculators</h1>
+    <p class="lede">Use costs, rates and timers shown in your own game. Nothing leaves this browser.</p>
+  </div>
+  <nav class="chips" aria-label="Calculators on this page" id="chips"></nav>
+
+  <section class="section" id="speedups" aria-labelledby="spTitle">
+    <div class="calc-grid">
+      <article class="sp plate">
+        <div class="in">
+          <h2 class="sheet-title" id="spTitle">Speedup inventory</h2>
+          <p class="sheet-sub" id="spSub"></p>
+          <div class="sp-grid" id="spGrid"></div>
+          <div class="timer-row" id="timerRow"></div>
+          <div class="actions">
+            <button type="button" class="btn quiet" id="spPreset">Load example</button>
+            <button type="button" class="btn quiet" id="spReset">Reset</button>
+          </div>
+        </div>
+      </article>
+      <aside class="cost plate" aria-live="polite" aria-atomic="true">
+        <div class="in" id="cost"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="research" aria-labelledby="rbTitle">
+    <article class="rb plate">
+      <div class="in">
+        <h2 class="sheet-title" id="rbTitle">Research budget</h2>
+        <p class="sheet-sub" id="rbSub"></p>
+        <div class="rb-table" id="rbTable"></div>
+        <div class="rb-params" id="rbParams"></div>
+        <div class="rb-result" id="rbResult" aria-live="polite" aria-atomic="true"></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section" aria-label="More calculators">
+    <div class="compact" id="compact"></div>
+  </section>
+
+  <section class="section" aria-labelledby="extTitle">
+    <h2 class="strip"><span class="strip-title" id="extTitle">More tools</span><span class="strip-note">From ATLANTIS HUB. Each opens in a new tab.</span></h2>
+    <div class="ext" id="ext"></div>
+  </section>
+</main>
+
+<footer class="foot" id="foot"></footer>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="app.js?v=dfbd3ffd01"></script>
+<script src="calc.js?v=7dcc6d97e8"></script>
+<script>HQ.init();</script>
+</body>
+</html>
