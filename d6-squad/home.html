@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alliance HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d6.css?v=f0df946352">
+<link rel="stylesheet" href="home.css?v=08afc324fa">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="rail">
+  <a class="brand" href="home.html">
+    <span class="tagplate" data-tag>DGF</span>
+    <span class="brand-name" data-alliance-name>The Dragonfly</span>
+  </a>
+  <nav class="tabs" aria-label="Main">
+    <a href="home.html" aria-current="page" data-nav="home">HQ</a>
+    <a href="#" data-nav="season" data-locked="season">Season</a>
+    <a href="#" data-nav="tips" data-locked="tips">Tips</a>
+    <a href="calc.html" data-nav="tools">Calculators</a>
+    <a href="planner.html" data-nav="planner">Planner</a>
+  </nav>
+  <label class="lang">
+    <span class="sr">Language</span>
+    <select id="lang"></select>
+  </label>
+</header>
+
+<main id="main">
+  <section class="band stage" id="stage" data-art="hero" aria-labelledby="allianceName">
+    <div class="stage-grid">
+      <div class="identity">
+        <div class="plate plate-id on-art">
+          <div class="tag" data-tag>DGF</div>
+          <h1 class="alliance-name" id="allianceName" data-alliance-name>The Dragonfly</h1>
+          <p class="motto" id="motto"></p>
+        </div>
+        <div class="plate plate-season">
+          <span class="tab">Season 8</span>
+          <h2 class="season-name" id="seasonName">Dinosaur Era</h2>
+          <p class="week-line" id="weekLine"></p>
+          <p class="week-next" id="weekNext"></p>
+          <p class="brief" id="brief"></p>
+        </div>
+      </div>
+
+      <div class="select on-art" id="select" aria-live="polite">
+        <figure class="bigframe">
+          <div class="portrait" id="bigPortrait"></div>
+        </figure>
+        <div class="dossier">
+          <div class="rank" id="rank"></div>
+          <h2 class="person-name" id="personName"></h2>
+          <p class="person-role" id="personRole"></p>
+        </div>
+      </div>
+
+      <aside class="plate plate-next" aria-labelledby="nextTab">
+        <span class="tab" id="nextTab">Next</span>
+        <ol class="events" id="events"></ol>
+      </aside>
+    </div>
+
+    <div class="plate plate-council" aria-labelledby="councilTab">
+      <span class="tab" id="councilTab">Council</span>
+      <div class="strip-scroll">
+        <div class="strip" id="strip" role="group" aria-label="Leadership"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ground">
+    <div class="plate plate-go" aria-labelledby="goTab">
+      <span class="tab" id="goTab">Go</span>
+      <ul class="tiles" id="tiles"></ul>
+      <p class="locked-msg" id="lockedMsg" role="status"></p>
+    </div>
+    <div class="plate plate-pacts" aria-labelledby="pactsTab">
+      <span class="tab" id="pactsTab">Pacts</span>
+      <div class="pacts" id="pacts"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-brand" data-brand>DGF Alliance HQ</p>
+    <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+    <p class="foot-note">Event times on this page are sample data for the mockup. Season details come from a pre-release briefing; confirm dates, rules and payouts in game.</p>
+    <p><a href="#main">Back to top</a></p>
+  </footer>
+</main>
+
+<nav class="dock" aria-label="Main, phone">
+  <a href="home.html" aria-current="page" data-nav="home">HQ</a>
+  <a href="#" data-nav="season" data-locked="season">Season</a>
+  <a href="#" data-nav="tips" data-locked="tips">Tips</a>
+  <a href="calc.html" data-nav="tools">Calculators</a>
+  <a href="planner.html" data-nav="planner">Planner</a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls">
+  Mock · Alliance:
+  <button type="button" data-mock="DGF">DGF</button> | <button type="button" data-mock="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d6.js?v=2ea47f5e57"></script>
+<script src="home.js?v=3ffa980520"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Gold Battlefield planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d6.css?v=f0df946352">
+<link rel="stylesheet" href="planner.css?v=a6e93cf10d">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="rail">
+  <a class="brand" href="home.html">
+    <span class="tagplate" data-tag>DGF</span>
+    <span class="brand-name" data-alliance-name>The Dragonfly</span>
+  </a>
+  <nav class="tabs" aria-label="Main">
+    <a href="home.html" data-nav="home">HQ</a>
+    <a href="home.html#tile-season" data-nav="season">Season</a>
+    <a href="home.html#tile-tips" data-nav="tips">Tips</a>
+    <a href="calc.html" data-nav="tools">Calculators</a>
+    <a href="planner.html" aria-current="page" data-nav="planner">Planner</a>
+  </nav>
+  <label class="lang">
+    <span class="sr">Language</span>
+    <select id="lang"></select>
+  </label>
+</header>
+
+<main id="main">
+  <section class="band" data-art="bgb">
+    <div class="wrap">
+      <h1 class="page-title on-art">Black Gold Battlefield</h1>
+      <p class="page-lede on-art">Twenty starters, eight objectives and four floaters. The strongest four float; the rest pair strongest with weakest. Lower-left start.</p>
+      <div class="band-row">
+        <div class="teams" role="group" aria-label="Team">
+          <button type="button" class="team-tab" data-team="A" aria-pressed="true">Team A</button>
+          <button type="button" class="team-tab" data-team="B" aria-pressed="false">Team B</button>
+        </div>
+        <p class="count on-art" id="count"></p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#plan">Plan</a><a href="#map">Map</a><a href="#roster">Roster</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap planner">
+    <div class="plan-grid">
+      <section class="plate" id="plan" aria-labelledby="tab-plan">
+        <span class="tab" id="tab-plan">Plan</span>
+        <span class="tab alt" id="staleTab" hidden>Stale</span>
+        <p class="status" id="planState" role="status"></p>
+        <div class="squad" id="floaters"></div>
+        <div class="board" id="board"></div>
+        <div class="actions plan-actions">
+          <button type="button" class="btn" id="copyBtn">Copy plan for alliance chat</button>
+          <button type="button" class="btn quiet" id="undoBtn" hidden>Undo swap</button>
+          <span class="hint" id="swapHint">Tap one player, then another, to swap them.</span>
+        </div>
+        <p class="status" id="copyMsg" role="status"></p>
+        <details class="plan-text">
+          <summary>Plan text</summary>
+          <textarea id="planText" readonly rows="14" aria-label="Plan text for alliance chat"></textarea>
+        </details>
+      </section>
+
+      <section class="plate" id="map" aria-labelledby="tab-map">
+        <span class="tab" id="tab-map">Map</span>
+        <div class="map-wrap" id="mapWrap"></div>
+        <p class="status" id="mapNote"></p>
+      </section>
+    </div>
+
+    <section class="plate" id="roster" aria-labelledby="tab-roster">
+      <span class="tab" id="tab-roster">Roster</span>
+      <p class="lede">Names and CP are shared between teams. Tick the starters for the selected team. CP accepts 350M, 1.2B or 1,200,000.</p>
+      <ol class="rows" id="rows"></ol>
+      <div class="actions">
+        <button type="button" class="btn quiet small" id="addBtn">Add player</button>
+        <button type="button" class="btn quiet small" id="clearBtn">Clear starters</button>
+        <button type="button" class="btn quiet small" id="sampleBtn">Restore sample roster</button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <p class="foot-brand" data-brand>DGF Alliance HQ</p>
+    <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+    <p class="foot-note">The roster shown is sample data for the mockup. Your edits stay in this browser. Floaters stage before alloy spawns; Hospital and Military pairs stage nearby and wait for their objectives to open.</p>
+    <p><a href="#main">Back to top</a></p>
+  </footer>
+</main>
+
+<nav class="dock" aria-label="Main, phone">
+  <a href="home.html" data-nav="home">HQ</a>
+  <a href="home.html#tile-season" data-nav="season">Season</a>
+  <a href="home.html#tile-tips" data-nav="tips">Tips</a>
+  <a href="calc.html" data-nav="tools">Calculators</a>
+  <a href="planner.html" aria-current="page" data-nav="planner">Planner</a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls">
+  Mock · Alliance:
+  <button type="button" data-mock="DGF">DGF</button> | <button type="button" data-mock="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d6.js?v=2ea47f5e57"></script>
+<script src="planner.js?v=9d1298eecc"></script>
+</body>
+</html>

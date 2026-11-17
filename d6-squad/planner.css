@@ -1,0 +1,120 @@
+/* d6 Squad Select — planner: squad slots per objective. */
+.band { padding-bottom: 28px; }
+.band .wrap { padding-inline: 0; }
+.band-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 24px; }
+.teams { display: inline-flex; gap: 6px; align-items: flex-end; }
+.team-tab {
+  min-height: 44px; padding: 0 20px;
+  background: var(--steel); color: var(--bone-2);
+  border: 0; border-top: 1px solid var(--steel-light); border-bottom: 2px solid var(--fog);
+  font: 800 20px/1 var(--display); cursor: pointer;
+  --c: 8px;
+  transition: transform .2s;
+}
+.team-tab[aria-pressed="true"] { background: var(--banner); color: var(--banner-ink); transform: scale(1.1); transform-origin: 50% 100%; }
+.count { font: 600 20px/1.2 var(--display); }
+.jump { display: none; gap: 6px; }
+.jump a { display: inline-grid; place-items: center; min-height: 44px; padding: 0 14px; background: var(--fog); border: 1px solid var(--steel); text-decoration: none; font-weight: 600; }
+
+.planner { display: grid; gap: 44px; padding-block: 36px 40px; }
+.plan-grid { display: grid; grid-template-columns: 1fr minmax(360px, 460px); gap: 28px; align-items: start; }
+
+/* squads: floaters row, then eight objective columns */
+.squad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+.board { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; }
+.col { display: grid; gap: 8px; align-content: start; padding: 8px; background: color-mix(in srgb, var(--fog) 55%, transparent); border: 1px solid var(--steel); }
+.col.hot { border-color: var(--bone); }
+.obj-head { display: grid; gap: 4px; cursor: pointer; padding: 0; background: none; border: 0; color: inherit; text-align: start; }
+.obj-id {
+  display: inline-grid; place-items: center; justify-self: start;
+  min-width: 36px; height: 28px; padding: 0 8px;
+  background: var(--oc, var(--steel)); color: var(--fog);
+  font: 800 17px/1 var(--display);
+  --c: 6px;
+}
+.obj-name { font: 600 14px/1.2 var(--body); }
+.obj-timing { font-size: 12px; color: var(--bone-2); }
+.obj-cp { font: 600 17px/1 var(--display); color: var(--bone-2); }
+.squad .col { grid-template-columns: 1fr; }
+.squad .obj-head .obj-name { font-size: 13px; min-height: 2.4em; }
+
+.pslot {
+  display: grid; justify-items: center; gap: 4px;
+  padding: 6px 2px 4px; background: none; border: 0; cursor: pointer;
+  color: var(--bone); text-align: center; min-width: 0;
+}
+.pslot .cell { width: 56px; height: 56px; }
+.pslot:hover .cell { border-color: var(--bone-3); }
+.pslot[aria-pressed="true"] .cell { transform: scale(1.18); border-color: var(--banner); }
+.pslot .pname { font-size: 12px; line-height: 1.2; overflow-wrap: anywhere; max-width: 100%; margin-top: 2px; }
+.pslot[aria-pressed="true"] .pname { font-weight: 600; margin-top: 10px; }
+.pslot .pcp { font: 600 14px/1 var(--display); color: var(--bone-2); }
+.pslot .duty { font-size: 11px; color: var(--bone-2); line-height: 1.2; }
+.pslot .swapped { font-size: 11px; color: var(--banner); font-weight: 600; }
+html[data-alliance="GIR"] .pslot .swapped { color: #9fd36f; }
+.pslot.empty { cursor: default; color: var(--bone-3); }
+.pslot.empty .cell.locked { width: 56px; height: 56px; }
+.plan.stale .squad, .plan.stale .board { opacity: .55; }
+#plan.stale .squad, #plan.stale .board { opacity: .55; filter: saturate(.6); }
+.plan-actions { margin-top: 18px; }
+.hint { font-size: 14px; color: var(--bone-2); }
+.plan-text { margin-top: 14px; }
+.plan-text summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+.plan-text textarea {
+  width: 100%; margin-top: 8px; padding: 10px;
+  background: var(--fog); color: var(--bone); border: 2px solid var(--steel);
+  font: 14px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+  resize: vertical;
+}
+
+/* map */
+.map-wrap svg { display: block; width: 100%; height: auto; }
+.map-wrap .pin { cursor: pointer; }
+.map-wrap .pin circle { stroke: #151a21; stroke-width: 2; transition: r .2s; }
+.map-wrap .pin text { font: 800 18px var(--display); fill: #151a21; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.map-wrap .pin.hot circle { r: 22; stroke: #efe7d4; stroke-width: 3; }
+.map-wrap .pin.hot text { font-size: 19px; }
+.map-wrap .pin:focus-visible { outline: none; }
+.map-wrap .pin:focus-visible circle { stroke: var(--lamp-light); stroke-width: 3; }
+.map-wrap .lbl { font: 600 17px var(--body); fill: #efe7d4; paint-order: stroke; stroke: #151a21; stroke-width: 3px; stroke-linejoin: round; }
+
+/* roster */
+.rows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
+.rrow { display: grid; grid-template-columns: 28px 52px 1fr 110px 40px; gap: 8px; align-items: center; }
+.rrow .n { font: 800 17px/1 var(--display); color: var(--bone-3); text-align: center; }
+.rrow .tick {
+  width: 52px; height: 48px;
+  background: var(--fog); border: 2px solid var(--steel); cursor: pointer;
+  display: grid; place-items: center;
+  color: var(--bone-3);
+  font: 800 14px/1 var(--display);
+}
+.rrow .tick[aria-pressed="true"] { background: var(--banner); color: var(--banner-ink); border-color: var(--banner); }
+.rrow .field input { min-height: 48px; }
+.rrow .remove {
+  min-height: 48px; width: 40px;
+  background: var(--steel); color: var(--bone); border: 2px solid var(--steel);
+  font: 600 20px/1 var(--display); cursor: pointer;
+}
+.rrow .err { grid-column: 1 / -1; font-size: 13px; color: #f0a98f; margin: -4px 0 4px; }
+.rrow .err:empty { display: none; }
+#roster .actions { margin-top: 18px; }
+
+@media (max-width: 1100px) {
+  .plan-grid { grid-template-columns: 1fr; }
+  .board { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .rows { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .band-row { gap: 12px 20px; }
+  .jump { display: inline-flex; }
+  .planner { gap: 40px; padding-block: 28px 32px; }
+  .squad { grid-template-columns: 1fr 1fr; }
+  .board { grid-template-columns: 1fr 1fr; }
+  .col { grid-template-columns: 1fr 1fr; }
+  .col .obj-head { grid-column: 1 / -1; }
+  .squad .col { grid-template-columns: 1fr; }
+  .rrow { grid-template-columns: 24px 48px 1fr 92px 36px; gap: 6px; }
+  .rrow .tick { width: 48px; }
+  .rrow .remove { width: 36px; }
+}

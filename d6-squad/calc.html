@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d6.css?v=f0df946352">
+<link rel="stylesheet" href="calc.css?v=367d91d9a6">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="rail">
+  <a class="brand" href="home.html">
+    <span class="tagplate" data-tag>DGF</span>
+    <span class="brand-name" data-alliance-name>The Dragonfly</span>
+  </a>
+  <nav class="tabs" aria-label="Main">
+    <a href="home.html" data-nav="home">HQ</a>
+    <a href="home.html#tile-season" data-nav="season">Season</a>
+    <a href="home.html#tile-tips" data-nav="tips">Tips</a>
+    <a href="calc.html" aria-current="page" data-nav="tools">Calculators</a>
+    <a href="planner.html" data-nav="planner">Planner</a>
+  </nav>
+  <label class="lang">
+    <span class="sr">Language</span>
+    <select id="lang"></select>
+  </label>
+</header>
+
+<main id="main">
+  <section class="band" data-art="calculators">
+    <div class="wrap">
+      <h1 class="page-title on-art">Calculators</h1>
+      <p class="page-lede on-art">Type what you have in game. Results update as you type and stay in this browser.</p>
+      <nav class="pick" id="pick" aria-label="Pick a calculator"></nav>
+    </div>
+  </section>
+
+  <div class="wrap calcs">
+    <section class="plate calc" id="speedups" aria-labelledby="tab-speedups">
+      <span class="tab" id="tab-speedups">Speedup inventory</span>
+      <p class="lede">Count your speedup items by denomination and set the timer the game shows on the upgrade.</p>
+      <div class="calc-grid">
+        <form class="inputs" id="spForm" autocomplete="off">
+          <div class="loadout" id="loadout"></div>
+          <fieldset class="timer">
+            <legend>Upgrade timer</legend>
+            <div class="dhm">
+              <label class="field"><span>Days</span><input name="d" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+              <label class="field"><span>Hours</span><input name="h" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+              <label class="field"><span>Minutes</span><input name="m" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+            </div>
+          </fieldset>
+          <div class="actions">
+            <button type="button" class="btn quiet small" data-act="sp-example">Load example</button>
+            <button type="button" class="btn quiet small" data-act="sp-reset">Reset</button>
+          </div>
+        </form>
+        <div class="plate deep result" aria-live="polite">
+          <span class="tab">Result</span>
+          <div class="ledger" id="spResult"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plate calc" id="research" aria-labelledby="tab-research">
+      <span class="tab" id="tab-research">Research budget</span>
+      <p class="lede">One row per research step, using the base values the game shows. Badges are not discounted.</p>
+      <div class="calc-grid">
+        <form class="inputs" id="rsForm" autocomplete="off">
+          <div class="steps" id="steps"></div>
+          <div class="actions">
+            <button type="button" class="btn quiet small" data-act="rs-add">Add a step</button>
+          </div>
+          <fieldset class="mods">
+            <legend>Bonuses</legend>
+            <div class="dhm">
+              <label class="field"><span>Research speed %</span><input name="speed" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+              <label class="field"><span>Resource reduction %</span><input name="discount" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+              <label class="field"><span>Speedups, minutes</span><input name="speedups" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+            </div>
+          </fieldset>
+          <div class="actions">
+            <button type="button" class="btn quiet small" data-act="rs-example">Load example</button>
+            <button type="button" class="btn quiet small" data-act="rs-reset">Reset</button>
+          </div>
+        </form>
+        <div class="plate deep result" aria-live="polite">
+          <span class="tab">Result</span>
+          <div class="ledger" id="rsResult"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trio">
+      <section class="plate calc small" id="goal" aria-labelledby="tab-goal">
+        <span class="tab" id="tab-goal">Resource goal</span>
+        <p class="lede">How long to a target at a steady rate, such as Dino Scales per hour.</p>
+        <form class="inputs" id="goalForm" autocomplete="off">
+          <label class="field"><span>In storage</span><input name="owned" inputmode="numeric" pattern="[0-9]*" value="1200"></label>
+          <label class="field"><span>Target</span><input name="target" inputmode="numeric" pattern="[0-9]*" value="5000"></label>
+          <label class="field"><span>Net gain per hour</span><input name="rate" inputmode="numeric" pattern="[0-9]*" value="150"></label>
+        </form>
+        <div class="ledger" id="goalResult" aria-live="polite"></div>
+      </section>
+      <section class="plate calc small" id="crystals" aria-labelledby="tab-crystals">
+        <span class="tab" id="tab-crystals">Weekly crystals</span>
+        <p class="lede">Holdings you keep through Monday settlement.</p>
+        <form class="inputs pairs" id="cryForm" autocomplete="off">
+          <label class="field"><span>Regular Mines</span><input name="regularCount" inputmode="numeric" pattern="[0-9]*" value="4"></label>
+          <label class="field"><span>Each pays</span><input name="regularPayout" inputmode="numeric" pattern="[0-9]*" value="2500"></label>
+          <label class="field"><span>Boosted Mines</span><input name="boostedCount" inputmode="numeric" pattern="[0-9]*" value="2"></label>
+          <label class="field"><span>Each pays</span><input name="boostedPayout" inputmode="numeric" pattern="[0-9]*" value="3750"></label>
+          <label class="field"><span>Passes</span><input name="passCount" inputmode="numeric" pattern="[0-9]*" value="3"></label>
+          <label class="field"><span>Each pays</span><input name="passPayout" inputmode="numeric" pattern="[0-9]*" value="1200"></label>
+        </form>
+        <div class="ledger" id="cryResult" aria-live="polite"></div>
+      </section>
+      <section class="plate calc small" id="capture" aria-labelledby="tab-capture">
+        <span class="tab" id="tab-capture">Mining Site capture</span>
+        <p class="lede">Control time still needed at a steady capture rate. Full capture is 30 minutes in the pre-release guide.</p>
+        <form class="inputs" id="capForm" autocomplete="off">
+          <label class="field"><span>Current progress %</span><input name="progress" inputmode="numeric" pattern="[0-9]*" value="35"></label>
+          <label class="field"><span>Full capture, minutes</span><input name="full" inputmode="numeric" pattern="[0-9]*" value="30"></label>
+        </form>
+        <div class="ledger" id="capResult" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <section class="plate" id="more" aria-labelledby="tab-more">
+      <span class="tab" id="tab-more">More from ATLANTIS HUB</span>
+      <p class="lede">Ten deeper calculators on atlantisdws.com. Each link opens in a new tab.</p>
+      <ul class="tools" id="tools"></ul>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <p class="foot-brand" data-brand>DGF Alliance HQ</p>
+    <p>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee.</p>
+    <p class="foot-note">Formulas match the live site. Values you type stay in this browser.</p>
+    <p><a href="#main">Back to top</a></p>
+  </footer>
+</main>
+
+<nav class="dock" aria-label="Main, phone">
+  <a href="home.html" data-nav="home">HQ</a>
+  <a href="home.html#tile-season" data-nav="season">Season</a>
+  <a href="home.html#tile-tips" data-nav="tips">Tips</a>
+  <a href="calc.html" aria-current="page" data-nav="tools">Calculators</a>
+  <a href="planner.html" data-nav="planner">Planner</a>
+</nav>
+
+<div class="mock" role="group" aria-label="Mock controls">
+  Mock · Alliance:
+  <button type="button" data-mock="DGF">DGF</button> | <button type="button" data-mock="GIR">GIR</button>
+</div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d6.js?v=2ea47f5e57"></script>
+<script src="calc.js?v=cedb2d8ae5"></script>
+</body>
+</html>
