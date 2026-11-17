@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DGF Alliance HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Saira:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d2.css?v=79856b7c60">
+</head>
+<body data-ground="hero">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ground" aria-hidden="true"><img id="groundArt" alt="" src="../assets/DGF/dragonfly-fortress.webp?v=51a77beb34"></div>
+
+<header class="hud">
+  <a class="idplate" href="home.html">
+    <span class="hqmark"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hq"/></svg><b id="hqTag">DGF</b></span>
+    <span class="idtext"><b id="allianceName">The Dragonfly</b><i id="motto"></i></span>
+  </a>
+  <nav class="tabs" aria-label="Main">
+    <a class="tab is-current" href="home.html" aria-current="page" data-nav="home">HQ</a>
+    <a class="tab" href="#" data-nav="season" data-soon="Season guide">Season</a>
+    <a class="tab" href="#" data-nav="tips" data-soon="Tips">Tips</a>
+    <a class="tab" href="calc.html" data-nav="tools">Calculators</a>
+    <a class="tab" href="planner.html" data-nav="planner">Planner</a>
+  </nav>
+  <button class="btn btn-steel langbtn" id="langBtn" type="button" aria-haspopup="dialog" aria-controls="langDlg">English</button>
+</header>
+
+<main id="main" class="deck">
+  <div class="col-main">
+
+    <section class="panel" style="--i:0" aria-labelledby="seasonTab">
+      <h2 class="tabtitle" id="seasonTab">Season 8: Dinosaur Era</h2>
+      <div class="face">
+        <div class="season">
+          <div class="weekplate" aria-label="Week 4 of 10"><span>Week</span><b>4</b><span>of 10</span></div>
+          <div class="stage">
+            <b id="stageTitle"></b>
+            <p id="stageText"></p>
+            <p class="stage-next" id="stageNext"></p>
+          </div>
+        </div>
+        <div class="notice" id="notice">
+          <p><b>Pre-release briefing.</b> <span id="noticeText"></span></p>
+          <button class="btn btn-red btn-x" type="button" id="noticeClose" aria-label="Dismiss the briefing"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#x"/></svg></button>
+        </div>
+      </div>
+
+      <h2 class="tabtitle tabtitle-mid" id="eventsTab">Time left</h2>
+      <ol class="banners" id="events" aria-labelledby="eventsTab"></ol>
+      <p class="footnote">Event times are sample data for this mock. The live site has no schedule yet. All times are server time.</p>
+    </section>
+
+    <section class="panel" style="--i:1" aria-labelledby="goTab">
+      <h2 class="tabtitle" id="goTab">Go</h2>
+      <div class="face gogrid" id="go"></div>
+    </section>
+
+  </div>
+
+  <aside class="col-side">
+
+    <section class="panel" style="--i:2" aria-labelledby="allyTab">
+      <h2 class="tabtitle" id="allyTab">Alliance</h2>
+      <div class="face">
+        <div class="well nap">
+          <span class="napnum" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#slot-brass"/></svg><b id="napNum">8</b></span>
+          <div><b id="napTitle">NAP 8</b><span id="napNote">Non-aggression pact</span></div>
+        </div>
+        <div class="well">
+          <b class="welltitle">Allies</b>
+          <ul class="tags" id="allies"></ul>
+        </div>
+        <div class="well" id="interWell">
+          <b class="welltitle">Inter-state NAP</b>
+          <ul class="inter" id="inter"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" style="--i:3" aria-labelledby="leadTab">
+      <h2 class="tabtitle" id="leadTab">Leadership</h2>
+      <div class="face">
+        <ol class="ladder" aria-label="Rank ladder, R1 to R5">
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#r1"/></svg><span>R1</span></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#r2"/></svg><span>R2</span></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#r3"/></svg><span>R3</span></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#r4"/></svg><span>R4</span></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#r5"/></svg><span>R5</span></li>
+        </ol>
+        <div class="leader">
+          <span class="portrait portrait-big" id="r5Portrait" role="img" aria-label="Portrait"></span>
+          <div class="leadtext"><b><bdi id="r5Name"></bdi></b><span>R5 leader</span></div>
+          <svg class="insignia insignia-r5" viewBox="0 0 64 64" aria-hidden="true"><use href="#r5"/></svg>
+        </div>
+        <h3 class="subhead">R4 council</h3>
+        <ul class="council" id="council"></ul>
+      </div>
+    </section>
+
+  </aside>
+</main>
+
+<footer class="foot">
+  <b id="brand">DGF Alliance HQ</b>
+  <span>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+<dialog class="dlg" id="langDlg" aria-labelledby="langTitle">
+  <div class="dlghead">
+    <h2 id="langTitle">Language</h2>
+    <button class="btn btn-red btn-x" type="button" id="langClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#x"/></svg></button>
+  </div>
+  <div class="dlgbody langgrid" id="langGrid"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="mock">Mock · Alliance: <button type="button" data-set="DGF">DGF</button> | <button type="button" data-set="GIR">GIR</button></div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d2.js?v=239a278852"></script>
+<script src="home.js?v=c7edac4e82"></script>
+</body>
+</html>

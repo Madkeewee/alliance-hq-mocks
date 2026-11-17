@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculators, DGF Alliance HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Saira:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d2.css?v=79856b7c60">
+</head>
+<body data-title="Calculators" data-ground="calculators">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ground" aria-hidden="true"><img id="groundArt" alt="" src="../assets/DGF/calculator-workshop.webp?v=0fa4129f64"></div>
+
+<header class="hud">
+  <a class="idplate" href="home.html">
+    <span class="hqmark"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hq"/></svg><b id="hqTag">DGF</b></span>
+    <span class="idtext"><b id="allianceName">The Dragonfly</b><i id="motto"></i></span>
+  </a>
+  <nav class="tabs" aria-label="Main">
+    <a class="tab" href="home.html" data-nav="home">HQ</a>
+    <a class="tab" href="#" data-nav="season" data-soon="Season guide">Season</a>
+    <a class="tab" href="#" data-nav="tips" data-soon="Tips">Tips</a>
+    <a class="tab is-current" href="calc.html" aria-current="page" data-nav="tools">Calculators</a>
+    <a class="tab" href="planner.html" data-nav="planner">Planner</a>
+  </nav>
+  <button class="btn btn-steel langbtn" id="langBtn" type="button" aria-haspopup="dialog" aria-controls="langDlg">English</button>
+</header>
+
+<main id="main" class="deck deck-one">
+
+  <section class="panel panel-tabbed" style="--i:0" aria-label="Calculators">
+    <div class="tabstrip" role="tablist" aria-label="Calculators">
+      <button class="tabtitle tabbtn" type="button" role="tab" id="tab-speedups" aria-controls="pane-speedups" aria-selected="true">Speedups</button>
+      <button class="tabtitle tabbtn" type="button" role="tab" id="tab-research" aria-controls="pane-research" aria-selected="false" tabindex="-1">Research</button>
+      <button class="tabtitle tabbtn" type="button" role="tab" id="tab-goal" aria-controls="pane-goal" aria-selected="false" tabindex="-1">Goal</button>
+      <button class="tabtitle tabbtn" type="button" role="tab" id="tab-crystals" aria-controls="pane-crystals" aria-selected="false" tabindex="-1">Crystals</button>
+      <button class="tabtitle tabbtn" type="button" role="tab" id="tab-capture" aria-controls="pane-capture" aria-selected="false" tabindex="-1">Capture</button>
+    </div>
+
+    <div class="face">
+
+      <!-- Speedup inventory -->
+      <div class="pane" id="pane-speedups" role="tabpanel" aria-labelledby="tab-speedups">
+        <div class="panehead"><h2>Speedup inventory</h2><p id="sp-lede"></p></div>
+        <div class="calcgrid">
+          <div class="inputs">
+            <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-clock"/></svg><label for="sp-one">1-minute items</label>
+              <div class="stepper"><button class="btn btn-steel step" type="button" data-for="sp-one" data-step="-1" aria-label="Fewer 1-minute items">−</button><input class="well-in" id="sp-one" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><button class="btn btn-steel step" type="button" data-for="sp-one" data-step="1" aria-label="More 1-minute items">+</button></div></div>
+            <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-clock"/></svg><label for="sp-five">5-minute items</label>
+              <div class="stepper"><button class="btn btn-steel step" type="button" data-for="sp-five" data-step="-1" aria-label="Fewer 5-minute items">−</button><input class="well-in" id="sp-five" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><button class="btn btn-steel step" type="button" data-for="sp-five" data-step="1" aria-label="More 5-minute items">+</button></div></div>
+            <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-clock"/></svg><label for="sp-sixty">1-hour items</label>
+              <div class="stepper"><button class="btn btn-steel step" type="button" data-for="sp-sixty" data-step="-1" aria-label="Fewer 1-hour items">−</button><input class="well-in" id="sp-sixty" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><button class="btn btn-steel step" type="button" data-for="sp-sixty" data-step="1" aria-label="More 1-hour items">+</button></div></div>
+            <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-clock"/></svg><label for="sp-extra">Other speedups, in minutes</label>
+              <div class="stepper"><input class="well-in well-wide" id="sp-extra" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0"><span class="unit">min</span></div></div>
+            <div class="item item-timer"><span class="itemlabel" id="sp-timer-label">Upgrade timer left</span>
+              <div class="timer" role="group" aria-labelledby="sp-timer-label">
+                <span><input class="well-in" id="sp-d" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0" aria-label="Days"><em>d</em></span>
+                <span><input class="well-in" id="sp-h" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0" aria-label="Hours"><em>h</em></span>
+                <span><input class="well-in" id="sp-m" inputmode="numeric" pattern="[0-9]*" autocomplete="off" value="0" aria-label="Minutes"><em>m</em></span>
+              </div></div>
+            <div class="actions"><button class="btn btn-steel" type="button" id="sp-preset">Load example</button><button class="btn btn-steel" type="button" id="sp-reset">Reset</button></div>
+          </div>
+          <div class="result" aria-live="polite">
+            <dl class="readout">
+              <div><dt>Available</dt><dd id="sp-total">0m</dd></div>
+              <div><dt>Upgrade timer</dt><dd id="sp-timer">0m</dd></div>
+              <div class="covered"><dt>Covered</dt><dd><span class="bar" aria-hidden="true"><i id="sp-bar"></i></span><b id="sp-pct">0%</b></dd></div>
+              <div><dt>Still needed</dt><dd id="sp-short">0m</dd></div>
+            </dl>
+            <p class="items" id="sp-items"></p>
+            <div class="finish" id="sp-finish"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research budget -->
+      <div class="pane" id="pane-research" role="tabpanel" aria-labelledby="tab-research" hidden>
+        <div class="panehead"><h2>Research budget</h2><p id="rs-lede"></p></div>
+        <div class="calcgrid">
+          <div class="inputs">
+            <ol class="steps" id="rs-steps"></ol>
+            <div class="actions">
+              <button class="btn btn-green" type="button" id="rs-add">Add step</button>
+              <button class="btn btn-steel" type="button" id="rs-preset">Load example</button>
+              <button class="btn btn-steel" type="button" id="rs-reset">Reset</button>
+            </div>
+            <div class="bonuses">
+              <label class="field"><span>Research speed bonus</span><span class="unitwrap"><input class="well-in" id="rs-speed" inputmode="numeric" pattern="[0-9]*" value="0"><em>%</em></span></label>
+              <label class="field"><span>Wood, iron, electricity and coin reduction</span><span class="unitwrap"><input class="well-in" id="rs-discount" inputmode="numeric" pattern="[0-9]*" value="0"><em>%</em></span></label>
+              <label class="field"><span>Speedups available</span><span class="unitwrap"><input class="well-in well-wide" id="rs-speedups" inputmode="numeric" pattern="[0-9]*" value="0"><em>min</em></span></label>
+            </div>
+          </div>
+          <div class="result" aria-live="polite">
+            <p class="resulttitle">Estimated cost</p>
+            <ul class="shelf" id="rs-shelf"></ul>
+            <dl class="readout">
+              <div><dt>Time</dt><dd id="rs-time">0m</dd></div>
+              <div><dt>After speedups</dt><dd id="rs-after">0m</dd></div>
+            </dl>
+            <p class="items" id="rs-note"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resource goal -->
+      <div class="pane" id="pane-goal" role="tabpanel" aria-labelledby="tab-goal" hidden>
+        <div class="panehead"><h2>Resource goal</h2><p id="gl-lede"></p></div>
+        <div class="calcgrid">
+          <div class="inputs">
+            <label class="field"><span>In storage</span><input class="well-in well-wide" id="gl-owned" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+            <label class="field"><span>Target amount</span><input class="well-in well-wide" id="gl-target" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+            <label class="field"><span>Net gain per hour</span><input class="well-in well-wide" id="gl-rate" inputmode="numeric" pattern="[0-9]*" value="0"></label>
+            <div class="actions"><button class="btn btn-steel" type="button" id="gl-preset">Load example</button><button class="btn btn-steel" type="button" id="gl-reset">Reset</button></div>
+          </div>
+          <div class="result" aria-live="polite">
+            <dl class="readout">
+              <div><dt>Still needed</dt><dd id="gl-remaining">0</dd></div>
+              <div><dt>Time to target</dt><dd id="gl-eta">0m</dd></div>
+            </dl>
+            <p class="items" id="gl-note"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly crystal estimate -->
+      <div class="pane" id="pane-crystals" role="tabpanel" aria-labelledby="tab-crystals" hidden>
+        <div class="panehead"><h2>Weekly crystal estimate</h2><p id="cr-lede"></p></div>
+        <div class="calcgrid">
+          <div class="inputs">
+            <div class="pairrow"><label class="field"><span>Regular Mines</span><input class="well-in" id="cr-regularCount" inputmode="numeric" pattern="[0-9]*" value="0"></label><label class="field"><span>Crystals per regular Mine</span><input class="well-in well-wide" id="cr-regularPayout" inputmode="numeric" pattern="[0-9]*" value="0"></label></div>
+            <div class="pairrow"><label class="field"><span>Boosted Mines</span><input class="well-in" id="cr-boostedCount" inputmode="numeric" pattern="[0-9]*" value="0"></label><label class="field"><span>Crystals per boosted Mine</span><input class="well-in well-wide" id="cr-boostedPayout" inputmode="numeric" pattern="[0-9]*" value="0"></label></div>
+            <div class="pairrow"><label class="field"><span>Passes</span><input class="well-in" id="cr-passCount" inputmode="numeric" pattern="[0-9]*" value="0"></label><label class="field"><span>Crystals per Pass</span><input class="well-in well-wide" id="cr-passPayout" inputmode="numeric" pattern="[0-9]*" value="0"></label></div>
+            <div class="actions"><button class="btn btn-steel" type="button" id="cr-preset">Load example</button><button class="btn btn-steel" type="button" id="cr-reset">Reset</button></div>
+          </div>
+          <div class="result" aria-live="polite">
+            <ul class="shelf" id="cr-shelf"></ul>
+            <dl class="readout">
+              <div class="total"><dt>At Monday settlement</dt><dd id="cr-total">0</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mining Site capture -->
+      <div class="pane" id="pane-capture" role="tabpanel" aria-labelledby="tab-capture" hidden>
+        <div class="panehead"><h2>Mining Site capture</h2><p id="cp-lede"></p></div>
+        <div class="calcgrid">
+          <div class="inputs">
+            <label class="field"><span>Current camp progress</span><span class="unitwrap"><input class="well-in" id="cp-progress" inputmode="numeric" pattern="[0-9]*" value="0"><em>%</em></span></label>
+            <label class="field"><span>Full capture time</span><span class="unitwrap"><input class="well-in" id="cp-full" inputmode="numeric" pattern="[0-9]*" value="30"><em>min</em></span></label>
+            <div class="actions"><button class="btn btn-steel" type="button" id="cp-preset">Load example</button><button class="btn btn-steel" type="button" id="cp-reset">Reset</button></div>
+          </div>
+          <div class="result" aria-live="polite">
+            <dl class="readout">
+              <div class="total"><dt>Uninterrupted control still needed</dt><dd id="cp-left">30m</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="panel" style="--i:1" aria-labelledby="moreTab">
+    <h2 class="tabtitle" id="moreTab">More calculators</h2>
+    <div class="face">
+      <p class="lede">Ten deeper tools live on ATLANTIS HUB. Each opens in a new tab.</p>
+      <ul class="tools" id="tools"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <b id="brand">DGF Alliance HQ</b>
+  <span>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+<dialog class="dlg" id="langDlg" aria-labelledby="langTitle">
+  <div class="dlghead">
+    <h2 id="langTitle">Language</h2>
+    <button class="btn btn-red btn-x" type="button" id="langClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#x"/></svg></button>
+  </div>
+  <div class="dlgbody langgrid" id="langGrid"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="mock">Mock · Alliance: <button type="button" data-set="DGF">DGF</button> | <button type="button" data-set="GIR">GIR</button></div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d2.js?v=239a278852"></script>
+<script src="calc.js?v=87c6186cbd"></script>
+</body>
+</html>

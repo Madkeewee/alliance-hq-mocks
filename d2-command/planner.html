@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planner, DGF Alliance HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Saira:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d2.css?v=79856b7c60">
+</head>
+<body data-title="Black Gold Battlefield planner" data-ground="planner">
+<a class="skip" href="#main">Skip to content</a>
+<div class="ground" aria-hidden="true"><img id="groundArt" alt="" src="../assets/DGF/commander-war-table.webp?v=c69a512153"></div>
+
+<header class="hud">
+  <a class="idplate" href="home.html">
+    <span class="hqmark"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#hq"/></svg><b id="hqTag">DGF</b></span>
+    <span class="idtext"><b id="allianceName">The Dragonfly</b><i id="motto"></i></span>
+  </a>
+  <nav class="tabs" aria-label="Main">
+    <a class="tab" href="home.html" data-nav="home">HQ</a>
+    <a class="tab" href="#" data-nav="season" data-soon="Season guide">Season</a>
+    <a class="tab" href="#" data-nav="tips" data-soon="Tips">Tips</a>
+    <a class="tab" href="calc.html" data-nav="tools">Calculators</a>
+    <a class="tab is-current" href="planner.html" aria-current="page" data-nav="planner">Planner</a>
+  </nav>
+  <button class="btn btn-steel langbtn" id="langBtn" type="button" aria-haspopup="dialog" aria-controls="langDlg">English</button>
+</header>
+
+<main id="main" class="deck deck-planner" data-view="plan">
+  <div class="pagehead">
+    <h1>Black Gold Battlefield</h1>
+    <p>Save the alliance roster, update each player's strongest march CP, and select 20 starters for Team A or Team B. Names, CP and the plan stay in this browser.</p>
+  </div>
+
+  <div class="segmented" role="tablist" aria-label="Planner views">
+    <button class="btn btn-steel seg" type="button" role="tab" data-view="plan" aria-selected="true">Plan</button>
+    <button class="btn btn-steel seg" type="button" role="tab" data-view="map" aria-selected="false">Map</button>
+    <button class="btn btn-steel seg" type="button" role="tab" data-view="roster" aria-selected="false">Roster</button>
+  </div>
+
+  <div class="col-roster sec sec-roster">
+    <section class="panel panel-tabbed" style="--i:2" aria-label="Roster">
+      <div class="tabstrip" role="tablist" aria-label="Teams">
+        <button class="tabtitle tabbtn" type="button" role="tab" data-team="A" aria-selected="true">Team A</button>
+        <button class="tabtitle tabbtn" type="button" role="tab" data-team="B" aria-selected="false" tabindex="-1">Team B</button>
+      </div>
+      <div class="face">
+        <div class="rosterhead">
+          <b id="count">Team A · 0 / 20 starters</b>
+          <button class="btn btn-steel" type="button" id="clearStarters">Clear starters</button>
+        </div>
+        <div class="notice notice-error" id="rosterError" hidden role="alert"><p></p></div>
+        <ol class="roster" id="roster"></ol>
+        <div class="actions"><button class="btn btn-green" type="button" id="addPlayer">Add player</button></div>
+        <p class="footnote">Names and CP are shared by both teams. The roster is sample data for this mock.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-plan">
+    <section class="panel sec sec-plan" style="--i:0" aria-labelledby="planTab">
+      <h2 class="tabtitle" id="planTab">Plan</h2>
+      <span class="staletab" id="staleTab" hidden>Stale</span>
+      <div class="face">
+        <p class="lede">Lower-left start. Tap a member, then another, to swap them. Floaters stage before the alloy spawns; Hospital and Military pairs wait for their objective to open.</p>
+        <div class="plan" id="plan"></div>
+        <div class="actions actions-split">
+          <button class="btn btn-steel" type="button" id="undo" disabled>Undo swap</button>
+          <button class="btn btn-green" type="button" id="copy">Copy plan for alliance chat</button>
+        </div>
+        <details class="chatmsg">
+          <summary>Chat message</summary>
+          <textarea id="planText" readonly rows="12" aria-label="Plan text for alliance chat"></textarea>
+        </details>
+      </div>
+    </section>
+
+    <section class="panel sec sec-map" style="--i:1" aria-labelledby="mapTab">
+      <h2 class="tabtitle" id="mapTab">Map</h2>
+      <div class="face">
+        <svg class="warmap" id="map" viewBox="0 0 560 535" role="img" aria-label="Black Gold Battlefield map with objective pins"></svg>
+        <p class="footnote">Staging positions are approximate. Tap a pin to light its pair.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <b id="brand">DGF Alliance HQ</b>
+  <span>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+<dialog class="dlg" id="langDlg" aria-labelledby="langTitle">
+  <div class="dlghead">
+    <h2 id="langTitle">Language</h2>
+    <button class="btn btn-red btn-x" type="button" id="langClose" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#x"/></svg></button>
+  </div>
+  <div class="dlgbody langgrid" id="langGrid"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="mock">Mock · Alliance: <button type="button" data-set="DGF">DGF</button> | <button type="button" data-set="GIR">GIR</button></div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d2.js?v=239a278852"></script>
+<script src="planner.js?v=0bdf9a3d6d"></script>
+</body>
+</html>
