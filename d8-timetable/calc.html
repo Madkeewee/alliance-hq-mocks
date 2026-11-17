@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DGF Alliance HQ: Calculators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Golos+Text:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="board.css?v=d49ab1b950">
+<link rel="stylesheet" href="calc.css?v=f4836f66fd">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="shell-top"></div>
+
+<main id="main">
+  <div class="wrap page-head">
+    <h1 class="h2">Calculators</h1>
+    <p class="lede">Count what you have before the hour. Results update as you type and stay in this browser.</p>
+    <nav class="strip" aria-label="Calculators" id="calc-strip">
+      <a href="#speedups">Speedups</a><a href="#research">Research</a><a href="#goal">Goal</a><a href="#crystals">Crystals</a><a href="#capture">Capture</a><a href="#more">ATLANTIS HUB</a>
+    </nav>
+  </div>
+
+  <section class="calc wrap" id="speedups" aria-labelledby="sp-title">
+    <div class="calc-head">
+      <h2 class="h2" id="sp-title"></h2>
+      <p class="lede" id="sp-desc"></p>
+    </div>
+    <form class="paper" id="sp-form" novalidate>
+      <div class="cells" id="sp-cells"></div>
+      <div class="timer-row">
+        <fieldset class="timer">
+          <legend>Upgrade timer</legend>
+          <label class="tunit"><input class="in" type="number" inputmode="numeric" min="0" name="td" value="0" aria-label="Days"><span>d</span></label>
+          <label class="tunit"><input class="in" type="number" inputmode="numeric" min="0" max="23" name="th" value="0" aria-label="Hours"><span>h</span></label>
+          <label class="tunit"><input class="in" type="number" inputmode="numeric" min="0" max="59" name="tm" value="0" aria-label="Minutes"><span>m</span></label>
+        </fieldset>
+        <div class="actions">
+          <button type="button" class="btn btn--quiet" data-load="speedups">Load example</button>
+          <button type="button" class="btn btn--quiet" data-reset="speedups">Reset</button>
+        </div>
+      </div>
+    </form>
+    <div class="readout readout--sp" id="sp-out" aria-live="polite"></div>
+  </section>
+
+  <section class="calc wrap" id="research" aria-labelledby="re-title">
+    <div class="calc-head">
+      <h2 class="h2" id="re-title"></h2>
+      <p class="lede" id="re-desc"></p>
+    </div>
+    <form class="paper" id="re-form" novalidate>
+      <div class="steps-head" aria-hidden="true" id="re-heads"></div>
+      <ol class="steps" id="re-steps"></ol>
+      <div class="re-foot">
+        <button type="button" class="btn btn--quiet" id="re-add">Add step</button>
+        <div class="bonuses">
+          <label class="field"><span>Research speed bonus %</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="speed" value="0"></label>
+          <label class="field"><span>Resource reduction %</span><input class="in in--sm" type="number" inputmode="numeric" min="0" max="100" name="discount" value="0"></label>
+          <label class="field"><span>Speedups available (min)</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="speedups" value="0"></label>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn--quiet" data-load="research">Load example</button>
+          <button type="button" class="btn btn--quiet" data-reset="research">Reset</button>
+        </div>
+      </div>
+    </form>
+    <div class="readout readout--re" id="re-out" aria-live="polite"></div>
+  </section>
+
+  <div class="wrap trio">
+    <section class="calc calc--small" id="goal" aria-labelledby="go-title">
+      <h2 class="h3" id="go-title"></h2>
+      <p class="lede small" id="go-desc"></p>
+      <form class="paper" id="go-form" novalidate>
+        <label class="field"><span>In storage</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="owned" value="0"></label>
+        <label class="field"><span>Target amount</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="target" value="0"></label>
+        <label class="field"><span>Net gain per hour</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="rate" value="0"></label>
+        <button type="button" class="btn btn--quiet" data-load="goal">Load example</button>
+      </form>
+      <div class="readout" id="go-out" aria-live="polite"></div>
+    </section>
+    <section class="calc calc--small" id="crystals" aria-labelledby="cr-title">
+      <h2 class="h3" id="cr-title"></h2>
+      <p class="lede small" id="cr-desc"></p>
+      <form class="paper" id="cr-form" novalidate>
+        <div class="pair"><label class="field"><span>Regular Mines</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="regularCount" value="0"></label><label class="field"><span>Crystals each</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="regularPayout" value="0"></label></div>
+        <div class="pair"><label class="field"><span>Boosted Mines</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="boostedCount" value="0"></label><label class="field"><span>Crystals each</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="boostedPayout" value="0"></label></div>
+        <div class="pair"><label class="field"><span>Passes</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="passCount" value="0"></label><label class="field"><span>Crystals each</span><input class="in in--sm" type="number" inputmode="numeric" min="0" name="passPayout" value="0"></label></div>
+        <button type="button" class="btn btn--quiet" data-load="crystals">Load example</button>
+      </form>
+      <div class="readout" id="cr-out" aria-live="polite"></div>
+    </section>
+    <section class="calc calc--small" id="capture" aria-labelledby="ca-title">
+      <h2 class="h3" id="ca-title"></h2>
+      <p class="lede small" id="ca-desc"></p>
+      <form class="paper" id="ca-form" novalidate>
+        <label class="field"><span>Current camp progress %</span><input class="in in--sm" type="number" inputmode="numeric" min="0" max="100" name="progress" value="0"></label>
+        <label class="field"><span>Full capture time (minutes)</span><input class="in in--sm" type="number" inputmode="numeric" min="1" name="full" value="30"></label>
+        <button type="button" class="btn btn--quiet" data-load="capture">Load example</button>
+      </form>
+      <div class="readout" id="ca-out" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <section class="calc wrap" id="more" aria-labelledby="more-title">
+    <h2 class="h2" id="more-title">More calculators from ATLANTIS HUB</h2>
+    <p class="lede">Deeper calculators live on atlantisdws.com. Each of these opens in a new tab.</p>
+    <ul class="rows rows--paper" id="more-rows"></ul>
+  </section>
+</main>
+
+<div id="shell-foot"></div>
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="glyphs.js?v=8b179a9125"></script>
+<script src="shell.js?v=047bf4f027"></script>
+<script src="calc.js?v=158f8d7e9a"></script>
+</body>
+</html>

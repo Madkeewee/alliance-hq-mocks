@@ -1,0 +1,61 @@
+/* d8-timetable home: season head, week ruler, prep rows, roster board. Shared grammar lives in board.css. */
+.season { padding-block: 28px 0; }
+.season-head { display: grid; grid-template-columns: auto auto 1fr auto; gap: 8px 28px; align-items: baseline; padding-inline-start: 182px; }
+.season-name { font: 900 40px/1 var(--display); }
+.season-sub { font-size: 18px; color: var(--ink-2); }
+.season-cell { font-size: 15px; color: var(--ink-2); }
+.season-cell:nth-of-type(3) { justify-self: end; }
+.season-cell strong { color: var(--ink); font-size: 17px; }
+.season-step { padding-inline-start: 182px; margin-block-start: 8px; max-width: 80ch; color: var(--ink-2); }
+.season-step b { color: var(--ink); }
+.ruler { display: grid; grid-template-columns: repeat(10, 1fr); margin-block: 20px 0; position: relative; height: 96px; }
+.ruler::before { content: ""; position: absolute; inset-inline: 5%; inset-block-start: 44px; border-block-start: 2px solid var(--ink); }
+.wk { position: relative; text-align: center; }
+.wk .tick { position: absolute; inset-inline-start: 50%; inset-block-start: 38px; width: 14px; height: 14px; margin-inline-start: -7px; background: var(--paper); border: 2px solid var(--ink); border-radius: 50%; }
+.wk.past .tick { background: var(--ink); }
+.wk .n { position: absolute; inset-inline: 0; inset-block-start: 58px; font: 700 18px/1 var(--display); color: var(--ink-2); }
+.wk.past .n { color: var(--ink); }
+.wk .note { position: absolute; inset-inline: -20px; inset-block-start: 18px; font-size: 13px; color: var(--ink-2); }
+.wk:last-child .note { inset-inline: auto 0; text-align: end; }
+.wk.lock .tick { border-color: var(--rust); background: var(--rust); }
+.wk.lock .note, .wk.lock .n { color: var(--rust); font-weight: 700; }
+.wk.now .tick { width: 36px; height: 36px; margin-inline-start: -18px; inset-block-start: 27px; background: var(--amber); border-color: var(--amber); }
+.wk.now .n { inset-block-start: 36px; z-index: 1; color: var(--ink); font-size: 21px; }
+.wk.now .label { position: absolute; inset-inline: -60px; inset-block-start: 0; font: 900 21px/1 var(--display); color: var(--ink); white-space: nowrap; }
+
+.prep { padding-block: 48px 8px; }
+.prep .row { min-height: 96px; }
+
+.roster-board { margin-block-start: 48px; }
+.row--r5 { grid-template-columns: 132px minmax(0, 1fr) auto; grid-template-areas: "tile what time"; padding-block: 20px; }
+.row--r5 .tile { height: 132px; clip-path: none; border-block-end: 3px solid var(--accent); background-color: var(--board-2); }
+.row--r5 .ev-name { font-size: 40px; }
+.tile--sprite { background-size: 400% 300%; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-block-start: 8px; }
+.tags li { font: 900 32px/1 var(--display); padding-block-end: 4px; border-block-end: 3px solid var(--accent); }
+.council { display: flex; flex-wrap: wrap; gap: 16px 14px; margin-block-start: 12px; }
+.council li { display: grid; justify-items: center; gap: 6px; width: 92px; text-align: center; font-size: 14px; line-height: 1.25; color: var(--bone-2); }
+.council li bdi { overflow-wrap: anywhere; }
+.por { display: block; width: 72px; height: 72px; background-size: cover; background-position: center; border-block-end: 3px solid var(--accent); background-color: var(--board-2); }
+.por--sprite { background-size: 400% 300%; }
+
+@media (max-width: 900px) {
+  .season { padding-block-start: 22px; }
+  .season-head { padding-inline-start: 0; grid-template-columns: auto 1fr; }
+  .season-name { font-size: 32px; }
+  .season-cell { font-size: 14px; }
+  .season-cell:nth-of-type(3) { justify-self: start; }
+  .season-step { padding-inline-start: 0; font-size: 15px; }
+  .ruler { height: 84px; margin-block: 14px 0; }
+  .wk .n { font-size: 15px; }
+  .wk .note { font-size: 11px; }
+  .wk.now .label { font-size: 17px; inset-inline: -50px; }
+  .prep { padding-block-start: 36px; }
+  .roster-board { margin-block-start: 36px; }
+  .row--r5 { grid-template-columns: 1fr; grid-template-areas: "tile" "what" "time" "prep"; }
+  .row--r5 .tile { width: 96px; height: 96px; }
+  .row--r5 .ev-name { font-size: 32px; }
+  .tags li { font-size: 28px; }
+  .council { gap: 14px 8px; }
+  .council li { width: calc(33.333% - 6px); }
+}

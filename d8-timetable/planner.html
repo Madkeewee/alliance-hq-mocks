@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DGF Alliance HQ: Black Gold Battlefield planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Golos+Text:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="board.css?v=d49ab1b950">
+<link rel="stylesheet" href="planner.css?v=3cc1cd2a2f">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="shell-top"></div>
+
+<main id="main">
+  <div class="wrap page-head">
+    <h1 class="h2">Black Gold Battlefield</h1>
+    <p class="lede">Save the alliance roster, update each player's strongest march CP, and select 20 starters for Team A or Team B. The board assigns the four strongest as floaters and pairs the rest, strongest with weakest, across the objectives.</p>
+  </div>
+
+  <div class="wrap controls">
+    <div class="team" role="group" aria-label="Team">
+      <button type="button" class="team-btn" data-team="A" aria-pressed="true">Team A</button>
+      <button type="button" class="team-btn" data-team="B" aria-pressed="false">Team B</button>
+    </div>
+    <p class="count" id="count"></p>
+    <p class="status" id="roster-status" role="status" aria-live="polite"></p>
+    <nav class="strip jump" aria-label="On this page"><a href="#plan">Plan</a><a href="#map">Map</a><a href="#roster">Roster</a></nav>
+  </div>
+
+  <div class="wrap plan-grid">
+    <section class="board plan" id="plan" aria-labelledby="plan-title">
+      <h2 class="group" id="plan-title">Plan</h2>
+      <p class="stale" id="stale" role="status" aria-live="polite"></p>
+      <p class="swap-hint" id="swap-hint">Tap a name, then another, to swap them.</p>
+      <ul class="prows" id="plan-rows"></ul>
+      <h3 class="group group--sub">Floaters</h3>
+      <ul class="prows" id="floater-rows"></ul>
+      <div class="plan-actions">
+        <button type="button" class="btn btn--board" id="undo" hidden>Undo swap</button>
+        <button type="button" class="btn" id="copy">Copy plan for alliance chat</button>
+        <p class="status status--board" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+    <figure class="map" id="map">
+      <svg viewBox="0 0 560 535" id="map-svg" role="img" aria-labelledby="map-title">
+        <title id="map-title">Battlefield map with objective pins</title>
+      </svg>
+      <figcaption>Lower-left start. Pins mark approximate staging; the caller adjusts in the field.</figcaption>
+    </figure>
+  </div>
+
+  <section class="wrap roster" id="roster" aria-labelledby="roster-title">
+    <div class="roster-head">
+      <h2 class="h2" id="roster-title">Roster</h2>
+      <p class="lede">Names and CP are shared between teams. Only selected starters appear in the plan. CP accepts values such as 350M and 1.2B.</p>
+    </div>
+    <ol class="rrows" id="roster-rows"></ol>
+    <button type="button" class="btn btn--quiet" id="add-player">Add player</button>
+  </section>
+
+  <section class="wrap plan-text-wrap" aria-labelledby="text-title">
+    <h2 class="h3" id="text-title">Plan text</h2>
+    <p class="lede">What the copy button sends to alliance chat.</p>
+    <textarea class="plan-text" id="plan-text" readonly rows="18" dir="ltr" aria-label="Plan text"></textarea>
+  </section>
+</main>
+
+<div id="shell-foot"></div>
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="glyphs.js?v=8b179a9125"></script>
+<script src="shell.js?v=047bf4f027"></script>
+<script src="planner.js?v=cf06fb9715"></script>
+</body>
+</html>

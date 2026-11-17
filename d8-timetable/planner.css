@@ -1,0 +1,90 @@
+/* d8-timetable planner: a board of objective rows, the map beside it, the roster on paper beneath. */
+.page-head { padding-block-start: 90px; }
+.page-head .h2 { font-size: 56px; margin-block-end: 8px; }
+.controls { display: grid; grid-template-columns: auto auto 1fr; grid-template-areas: "team count status" "jump jump jump"; gap: 8px 28px; align-items: center; margin-block: 24px 20px; }
+.team { grid-area: team; display: inline-flex; border: 2px solid var(--ink); }
+.team-btn { min-height: 48px; padding: 0 20px; border: 0; background: transparent; font: 900 24px/1 var(--display); cursor: pointer; color: var(--ink); }
+.team-btn[aria-pressed="true"] { background: var(--ink); color: var(--bone); }
+.count { grid-area: count; font: 900 28px/1 var(--display); white-space: nowrap; }
+.controls .status { grid-area: status; }
+.jump { grid-area: jump; display: none; margin-block: 8px 0; }
+
+.plan-grid { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 28px; align-items: start; }
+.plan { padding: 28px 24px 24px; border-block-start: 0; border-block-start: 4px solid var(--amber); }
+.plan .group--sub { font-size: 28px; margin-block-start: 24px; }
+.stale { color: var(--amber); font-weight: 700; min-height: 0; }
+.stale:empty { display: none; }
+.swap-hint { font-size: 15px; color: var(--bone-2); margin-block-end: 10px; }
+.prows { border-block-start: 1px solid var(--board-rule); }
+.prow { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; grid-template-areas: "code what edge" "code names edge"; column-gap: 18px; row-gap: 6px; align-items: center; padding-block: 12px; border-block-end: 1px solid var(--board-rule); cursor: pointer; }
+.prow.is-hot { background: var(--board-2); }
+.prow.is-hot .code { outline: 3px solid var(--amber); outline-offset: -3px; }
+.code { grid-area: code; align-self: stretch; display: grid; place-items: center; background: var(--c, var(--bone-2)); color: var(--ink); font: 900 32px/1 var(--display); min-height: 64px; }
+.prow .what { grid-area: what; }
+.prow .ev-name { font-size: 24px; }
+.prow .ev-note { font-size: 14px; }
+.names { grid-area: names; display: flex; flex-wrap: wrap; gap: 8px; }
+.pl { display: inline-flex; align-items: baseline; gap: 8px; min-height: 44px; padding: 0 12px; border: 2px solid var(--board-rule); background: var(--board-2); color: var(--bone); font-weight: 700; cursor: pointer; }
+.pl small { font: 900 18px/1 var(--display); color: var(--amber); }
+.pl:hover { border-color: var(--bone-2); }
+.pl[aria-pressed="true"] { border-color: var(--amber); background: var(--amber); color: var(--ink); transform: scale(1.06); }
+.pl[aria-pressed="true"] small { color: var(--ink); }
+.pl.swapped::after { content: "swapped"; font-size: 11px; font-weight: 700; color: var(--amber); align-self: center; padding-inline-start: 4px; }
+.pl[aria-pressed="true"].swapped::after { color: var(--ink); }
+.prow .edge { grid-area: edge; font-size: 40px; }
+.prow .duty { font-size: 14px; color: var(--bone-2); }
+.plan--stale .code { filter: saturate(.15); opacity: .7; }
+.plan--stale .edge, .plan--stale .pl small { color: var(--bone-2); }
+.plan-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-block-start: 22px; }
+.status--board { color: var(--amber); }
+
+.map { margin: 0; position: sticky; top: 16px; }
+.map svg { width: 100%; height: auto; background: var(--board); border: 4px solid var(--board); }
+.map figcaption { font-size: 14px; color: var(--ink-2); margin-block-start: 8px; }
+.pin { cursor: pointer; }
+.pin circle { stroke: var(--ink); stroke-width: 2; }
+.pin text { font: 900 18px/1 var(--display); fill: var(--ink); text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.pin.is-hot circle { stroke: var(--amber); stroke-width: 5; }
+.pin:focus-visible { outline: none; }
+.pin:focus-visible circle { stroke: var(--amber); stroke-width: 5; }
+.map-label { font: 700 15px/1 var(--display); fill: var(--bone); paint-order: stroke; stroke: var(--board); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
+
+.roster { padding-block: 48px 8px; }
+.roster-head { margin-block-end: 14px; }
+.rrows { border-block-start: 2px solid var(--ink); display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+.rrow { display: grid; grid-template-columns: 36px 1fr 120px 120px; gap: 10px; align-items: center; padding-block: 8px; border-block-end: 1px solid var(--rule); }
+.rrow .num { font: 900 20px/1 var(--display); color: var(--ink-2); text-align: center; }
+.rrow .in { min-height: 44px; }
+.rrow .cp { text-align: end; font: 900 22px/1 var(--display); }
+.st { display: grid; grid-template-columns: 1fr; }
+.st input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.st span { display: grid; place-items: center; min-height: 44px; border: 2px solid var(--ink); font-weight: 700; font-size: 15px; cursor: pointer; user-select: none; }
+.st input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+.st input:focus-visible + span { outline: 3px solid var(--amber); outline-offset: 2px; }
+#add-player { margin-block-start: 14px; }
+.rrow.bad .in[aria-invalid="true"] { border-color: var(--rust); }
+
+.plan-text-wrap { padding-block: 32px 8px; }
+.plan-text { width: 100%; max-width: 72ch; font: 15px/1.45 ui-monospace, "Cascadia Mono", Consolas, monospace; padding: 14px; border: 2px solid var(--ink); background: #fff; color: var(--ink); resize: vertical; margin-block-start: 10px; }
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .plan-grid { grid-template-columns: minmax(0, 1fr) 360px; }
+  .rrows { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .page-head { padding-block-start: 40px; }
+  .page-head .h2 { font-size: 40px; }
+  .controls { grid-template-columns: 1fr; grid-template-areas: "team" "count" "status" "jump"; gap: 10px; }
+  .team { display: grid; grid-template-columns: 1fr 1fr; }
+  .jump { display: flex; }
+  .plan-grid { grid-template-columns: 1fr; gap: 20px; padding-inline: 0; }
+  .plan { padding: 22px var(--gutter) 20px; }
+  .prow { grid-template-columns: 52px minmax(0, 1fr); grid-template-areas: "code what" "code names" "code edge"; column-gap: 12px; }
+  .code { font-size: 26px; }
+  .prow .edge { font-size: 32px; justify-self: start; }
+  .map { position: static; padding-inline: var(--gutter); }
+  .plan-actions .btn { flex: 1 1 100%; }
+  .rrows { grid-template-columns: 1fr; }
+  .rrow { grid-template-columns: 28px 1fr 96px 96px; gap: 6px; }
+  .rrow .cp { font-size: 18px; }
+}
