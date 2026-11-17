@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-alliance="DGF">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DGF Alliance HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Bodoni+Moda:opsz,wght@6..96,500&family=Encode+Sans+Semi+Condensed:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="d4.css?v=f0d5363a12">
+<link rel="stylesheet" href="planner.css?v=837defed82">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ground" aria-hidden="true"><img id="groundArt" alt=""></div>
+
+<header class="strip">
+  <a class="brand" href="home.html">
+    <span class="insignia" id="brandInsignia" aria-hidden="true"></span>
+    <span class="brand-name" id="brandName">The Dragonfly</span>
+  </a>
+  <label class="lang">
+    <span class="sr">Language</span>
+    <svg class="lang-glyph" viewBox="0 0 24 24" aria-hidden="true"><polygon class="hexbg" points="12,1.5 21.5,7 21.5,17 12,22.5 2.5,17 2.5,7"/><text x="12" y="15.5" text-anchor="middle">Aa</text></svg>
+    <select id="lang"></select>
+    <svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 5.5l5 5 5-5z"/></svg>
+  </label>
+</header>
+
+<main id="main">
+  <section class="frame frame-main" aria-labelledby="bgbTitle">
+    <span class="corners" aria-hidden="true"></span>
+    <div class="plate-title"><div>
+      <span class="insignia big" id="titleInsignia" aria-hidden="true"></span>
+      <h1 id="allianceName">The Dragonfly</h1>
+      <p class="motto" id="motto"></p>
+    </div></div>
+    <nav class="tabs" aria-label="Site"></nav>
+    <div class="frame-body">
+      <div class="frame-head plan-head">
+        <h2 id="bgbTitle">Black Gold Battlefield</h2>
+        <div class="teams" role="group" aria-label="Team">
+          <button type="button" class="team" data-team="A" aria-pressed="true">Team A</button><button type="button" class="team" data-team="B" aria-pressed="false">Team B</button>
+        </div>
+        <p class="count" id="count">Team A · 0 / 20 starters</p>
+        <p class="lede">Save the alliance roster, update each player's strongest march CP, and select 20 starters for Team A or Team B. The plan assumes a lower-left start.</p>
+      </div>
+      <nav class="jumps" aria-label="Sections"><a href="#plan">Plan</a><a href="#map">Map</a><a href="#roster">Roster</a></nav>
+
+      <div class="plan-grid">
+        <figure class="map" id="map">
+          <svg viewBox="0 0 560 535" role="img" aria-labelledby="mapTitle"><title id="mapTitle">Battlefield map with objective pins</title></svg>
+          <figcaption>Staging positions are approximate. Tap a pin to see who holds it.</figcaption>
+        </figure>
+        <div class="plan-col">
+          <div class="plan" id="plan" aria-label="Assignments"></div>
+          <p class="plan-state" id="planState" role="status"></p>
+          <div class="swapbar">
+            <span class="hint" id="swapHint">Tap one player, then another, to swap them.</span>
+            <button type="button" class="btn sec" id="undo" disabled>Undo swap</button>
+          </div>
+          <label class="plan-text"><span>Alliance chat message</span><textarea id="planText" readonly rows="8"></textarea></label>
+          <div class="copyrow"><button type="button" class="btn" id="copy">Copy plan for alliance chat</button><span class="copymsg" id="copyMsg" role="status" aria-live="polite"></span></div>
+        </div>
+      </div>
+
+      <section class="roster" id="roster" aria-labelledby="rosterTitle">
+        <div class="roster-head">
+          <h3 id="rosterTitle">Player roster</h3>
+          <p class="lede">Names and CP are shared between teams. Each team's starter list is saved separately in this browser. CP accepts values such as 350M and 1.2B.</p>
+          <div class="roster-actions"><button type="button" class="btn sec" id="addPlayer">Add player</button><button type="button" class="btn sec" id="clearStarters">Clear starter selection</button></div>
+        </div>
+        <ol class="rows" id="rows"></ol>
+      </section>
+    </div>
+  </section>
+  <p class="footnote">Rosters are sample data. Real rosters live in each alliance's browser only; nothing leaves the device.</p>
+</main>
+
+<footer class="foot">
+  <span id="footBrand">DGF Alliance HQ</span>
+  <span>Unofficial Dark War: Survival community guide created by AI pilot Madkeewee</span>
+  <a href="#main">Back to top</a>
+</footer>
+
+<nav class="bar" aria-label="Site"></nav>
+<div class="mock" aria-label="Mock controls">Mock · Alliance:
+  <button type="button" data-a="DGF">DGF</button> | <button type="button" data-a="GIR">GIR</button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../shared/hq.js?v=2b56ef5875"></script>
+<script src="d4.js?v=b6145a7548"></script>
+<script src="planner.js?v=3951ac1c0f"></script>
+</body>
+</html>
